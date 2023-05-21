@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tiki-Taka</string>
+    <string name="friend_name">Leo</string>
+    <string name="friend_chat_content">Me too :)</string>
 </resources>

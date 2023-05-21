@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewMatchingActivity">
+
+    <TextView
+        android:id="@+id/text_newMatching_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find new friend !"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/line_newMatching"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/line_newMatching"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/text_newMatching_explain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_newMatching_title" />
+
+    <TextView
+        android:id="@+id/text_newMatching_explain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Set conditions for the new friend you want."
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@id/text_newMatching_num1_1"
+        app:layout_constraintStart_toStartOf="@id/line_newMatching"
+        app:layout_constraintTop_toBottomOf="@id/line_newMatching" />
+
+    <TextView
+        android:id="@+id/text_newMatching_num1_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="1. Friend's location"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@id/text_newMatching_num1_2"
+        app:layout_constraintStart_toStartOf="@id/text_newMatching_explain"
+        app:layout_constraintTop_toBottomOf="@id/text_newMatching_explain" />
+
+    <TextView
+        android:id="@+id/text_newMatching_num1_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="5dp"
+        android:text="(Friend who live in the same district are matched.)"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@id/switch_newMatching"
+        app:layout_constraintStart_toStartOf="@id/text_newMatching_explain"
+        app:layout_constraintTop_toBottomOf="@id/text_newMatching_num1_1" />
+
+    <Switch
+        android:id="@+id/switch_newMatching"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/text_newMatching_num2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_newMatching_num1_2" />
+
+    <TextView
+        android:id="@+id/text_newMatching_num2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="2. Friend's interests"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@id/linear_newMatching_interests"
+        app:layout_constraintStart_toStartOf="@id/text_newMatching_explain"
+        app:layout_constraintTop_toBottomOf="@id/switch_newMatching" />
+
+    <LinearLayout
+        android:id="@+id/linear_newMatching_interests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btn_newMatching_submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_newMatching_num2">
+
+        <LinearLayout
+            android:id="@+id/linear_newMatching_btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_newMatching_hobby"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:text="Hobby"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btn_newMatching_music"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:text="Music"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btn_newMatching_country"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:text="Country"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btn_newMatching_major"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:text="Major"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_newMatching"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/black" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_newMatching_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_round_black_15dp"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_newMatching_interests" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
