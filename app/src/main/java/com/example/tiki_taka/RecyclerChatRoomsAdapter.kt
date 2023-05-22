@@ -28,6 +28,7 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
     var chatRooms: ArrayList<ChatRoom> = arrayListOf()   //채팅방 목록
     var chatRoomKeys: ArrayList<String> = arrayListOf()  //채팅방 키 목록
     val myUid = FirebaseAuth.getInstance().currentUser?.uid.toString()   //현재 사용자 Uid
+    lateinit var currentChatRoom: ChatRoom
 
     init {
         Log.d("userid..setupAlluserList",myUid)
@@ -41,8 +42,14 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
                 override fun onDataChange(snapshot: DataSnapshot) {
                     chatRooms.clear()
                     for (data in snapshot.children) {
-                        chatRooms.add(data.getValue<ChatRoom>()!!)
-                        chatRoomKeys.add(data.key!!)
+                        val item = data.getValue<ChatRoom>()
+                        //if (!(item?..equals(myUid))) {
+                        if(item?.users?.contains(myUid) == true){
+                            currentChatRoom = item!!
+                            chatRooms.add(currentChatRoom)
+                            chatRoomKeys.add(data.key!!)//
+                            continue
+                        }
                     }
                     notifyDataSetChanged()
                 }
@@ -56,8 +63,12 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var userIdList = chatRooms[position].users!!.keys    //채팅방에 포함된 사용자 키 목록
         var opponent = userIdList.first { it != myUid }  //상대방 사용자 키
-        Log.d("opponentid..setupAlluserList",opponent)
-        Log.d("opponentid..setupAlluserList",userIdList.size.toString())
+//        Log.d("opponentid..setupAlluserList",opponent)
+//        Log.d("opponentid..setupAlluserList2",myUid)
+//        Log.d("opponentid..setupAlluserList",chatRooms.size.toString())
+//        Log.d("opponentid..setupAlluserList3", chatRooms[0].users.toString())
+//        Log.d("opponentid..setupAlluserList4", chatRooms[1].users.toString())
+//        Log.d("opponentid..setupAlluserList5", chatRooms[2].users.toString())
         firebaseDatabase2.child("users").orderByChild("uid")   //상대방 사용자 키를 포함하는 채팅방 불러오기
             .equalTo(opponent)
             .addListenerForSingleValueEvent(object : ValueEventListener {
