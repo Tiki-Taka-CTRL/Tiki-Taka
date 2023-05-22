@@ -9,11 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tiki_taka.databinding.ItemListMineBinding
 import com.example.tiki_taka.databinding.ItemListOthersBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
 import model.Message
 
 class RecyclerMessagesAdapter(
@@ -26,6 +25,8 @@ class RecyclerMessagesAdapter(
     var messageKeys: ArrayList<String> = arrayListOf()   //메시지 키 목록
     val myUid = FirebaseAuth.getInstance().currentUser?.uid.toString()
     val recyclerView = (context as ChatRoomActivity).recycler_talks   //목록이 표시될 리사이클러 뷰
+    var firebaseDatabase: DatabaseReference = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("ChatRoom")
+    var firebaseDatabase2: DatabaseReference = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("User")
 
     init {
         setupMessages()
@@ -36,7 +37,7 @@ class RecyclerMessagesAdapter(
     }
 
     fun getMessages() {
-        FirebaseDatabase.getInstance().getReference("ChatRoom")
+        firebaseDatabase
             .child("chatRooms").child(chatRoomKey!!).child("messages")   //전체 메시지 목록 가져오기
             .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {}
@@ -102,7 +103,7 @@ class RecyclerMessagesAdapter(
 
             txtDate.text = getDateText(sendDate)
 
-            if (message.confirmed.equals(true))           //확인 여부 표시
+            if (message.confirmed)           //확인 여부 표시
                 txtIsShown.visibility = View.GONE
             else
                 txtIsShown.visibility = View.VISIBLE
@@ -133,7 +134,7 @@ class RecyclerMessagesAdapter(
         }
 
         fun setShown(position: Int) {          //메시지 확인하여 서버로 전송
-            FirebaseDatabase.getInstance().getReference("ChatRoom")
+            firebaseDatabase
                 .child("chatRooms").child(chatRoomKey!!).child("messages")
                 .child(messageKeys[position]).child("confirmed").setValue(true)
                 .addOnSuccessListener {

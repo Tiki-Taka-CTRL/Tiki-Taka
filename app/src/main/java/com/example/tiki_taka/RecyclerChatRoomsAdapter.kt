@@ -93,7 +93,7 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
             var lastMessage =
                 chatRooms[position].messages!!.values.sortedWith(compareBy { it.sendDate })    //메시지 목록에서 시각을 비교하여 가장 마지막 메시지  가져오기
                     .last()
-            holder.txt_message.text = lastMessage.content                 //마지막 메시지 표시
+            holder.txt_message.text = lastMessage.content                //마지막 메시지 표시
             holder.txt_date.text = getLastMessageTimeString(lastMessage.sendDate)   //마지막으로 전송된 시각 표시
         } catch (e: Exception) {
             e.printStackTrace()
