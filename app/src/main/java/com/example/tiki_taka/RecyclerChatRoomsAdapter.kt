@@ -3,6 +3,7 @@ package com.example.tiki_taka
 import android.content.Context
 import android.content.Intent
 import android.icu.util.TimeZone
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,11 +30,12 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
     val myUid = FirebaseAuth.getInstance().currentUser?.uid.toString()   //현재 사용자 Uid
 
     init {
+        Log.d("userid..setupAlluserList",myUid)
         setupAllUserList()
     }
     fun setupAllUserList() {     //전체 채팅방 목록 초기화 및 업데이트
         firebaseDatabase.child("chatRooms")
-            .orderByChild("users/$myUid").equalTo(true)
+            .orderByChild("users/$myUid")
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {}
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -54,6 +56,8 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var userIdList = chatRooms[position].users!!.keys    //채팅방에 포함된 사용자 키 목록
         var opponent = userIdList.first { it != myUid }  //상대방 사용자 키
+        Log.d("opponentid..setupAlluserList",opponent)
+        Log.d("opponentid..setupAlluserList",userIdList.size.toString())
         firebaseDatabase2.child("users").orderByChild("uid")   //상대방 사용자 키를 포함하는 채팅방 불러오기
             .equalTo(opponent)
             .addListenerForSingleValueEvent(object : ValueEventListener {

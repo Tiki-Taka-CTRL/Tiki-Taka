@@ -90,9 +90,10 @@ class ChatRoomActivity : AppCompatActivity() {
     }
 
     fun setupChatRoomKey() {            //chatRoomKey 없을 경우 초기화 후 목록 초기화
+        val myUid = FirebaseAuth.getInstance().currentUser?.uid.toString()
         var firebaseDatabaseChatRoom: DatabaseReference = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("ChatRoom")
         firebaseDatabaseChatRoom
-            .child("chatRooms").orderByChild("users/${opponentUser.uid}").equalTo(true)    //상대방의 Uid가 포함된 목록이 있는지 확인
+            .child("chatRooms").orderByChild("users/${opponentUser.uid}").equalTo(myUid)    //상대방의 Uid가 포함된 목록이 있는지 확인
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {}
                 override fun onDataChange(snapshot: DataSnapshot) {
