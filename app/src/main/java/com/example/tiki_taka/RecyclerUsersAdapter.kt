@@ -2,6 +2,7 @@ package com.example.tiki_taka
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +44,7 @@ class RecyclerUsersAdapter(val context: Context) :
                         allUsers.add(item!!)              //전체 사용자 목록에 추가
                     }
                     users = allUsers.clone() as ArrayList<User>
+                    Log.d("check", users.size.toString())
                     notifyDataSetChanged()              //화면 업데이트
                 }
             })
@@ -101,7 +103,7 @@ class RecyclerUsersAdapter(val context: Context) :
     }
 
     fun goToChatRoom(chatRoom: ChatRoom, opponentUid: User) {       //채팅방으로 이동
-        var intent = Intent(context, MainActivity::class.java)
+        var intent = Intent(context, ChatRoomActivity::class.java)
         intent.putExtra("ChatRoom", chatRoom)       //채팅방 정보
         intent.putExtra("Opponent", opponentUid)    //상대방 정보
         intent.putExtra("ChatRoomKey", "")   //채팅방 키
