@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Tiki-Taka</string>
+
+    <!--item_chatting.xml-->
     <string name="friend_name">Leo</string>
     <string name="friend_chat_content">Me too :)</string>
+
+    <!--fragment_new_matching_dialog.xml-->
+    <string name="dialog_friend_name">Leo</string>
+    <string name="dialog_friend_hobby1">#basketball🏀</string>
+    <string name="dialog_friend_hobby2">#Korean</string>
+    <string name="dialog_friend_hobby3">#active</string>
+    <string name="dialog_friend_hobby4">#coding</string>
+
 </resources>

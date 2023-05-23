@@ -167,7 +167,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/btn_round_black_15dp"
+        android:background="@drawable/rectangle_round_black_15dp"
         android:text="Submit"
         android:textAllCaps="false"
         android:textColor="@color/white"
