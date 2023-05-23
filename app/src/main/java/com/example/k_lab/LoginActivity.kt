@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
 
         //회원가입 화면 인텐트
         binding.signin.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, JoinActivity::class.java)
             startActivity(intent)
         }
 
