@@ -136,7 +136,7 @@
                     android:fontFamily="@font/notosans_regular"
                     android:hint="Enter your nickname"
                     android:textColorHint="#90909F"
-                    android:inputType="textPassword"
+                    android:inputType="textPersonName"
                     android:lines="1" />
             </LinearLayout>
 
@@ -266,7 +266,7 @@
                     android:ems="10"
                     android:hint="01012341234"
                     android:textColorHint="#90909F"
-                    android:inputType="textPassword"
+                    android:inputType="number"
                     android:lines="1" />
             </LinearLayout>
 
@@ -298,7 +298,7 @@
                         android:ems="10"
                         android:hint="Enter your 6 digit Code"
                         android:textColorHint="#90909F"
-                        android:inputType="textPassword"
+                        android:inputType="number"
                         android:lines="1" />
                 </LinearLayout>
 
