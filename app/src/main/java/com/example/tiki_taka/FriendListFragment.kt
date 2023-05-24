@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tiki_taka.databinding.FragmentFriendBinding
 
-class FriendFragment: Fragment() {
+class FriendListFragment: Fragment() {
     private lateinit var binding: FragmentFriendBinding
 
     override fun onCreateView(
