@@ -12,6 +12,12 @@
         android:theme="@style/Theme.TikiTaka"
         tools:targetApi="33">
         <activity
+            android:name=".NewMatchingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".Join2Activity"
             android:exported="true" />
         <activity

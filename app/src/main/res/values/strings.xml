@@ -2,6 +2,20 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_name">Tiki-Taka</string>
+
+
+    <!--item_chatting.xml-->
+    <string name="friend_name">Leo</string>
+    <string name="friend_chat_content">Me too :)</string>
+
+    <!--fragment_new_matching_dialog.xml-->
+    <string name="dialog_friend_name">Leo</string>
+    <string name="dialog_friend_hobby1">#basketball🏀</string>
+    <string name="dialog_friend_hobby2">#Korean</string>
+    <string name="dialog_friend_hobby3">#active</string>
+    <string name="dialog_friend_hobby4">#coding</string>
+
+
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -19,4 +33,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
 </resources>
