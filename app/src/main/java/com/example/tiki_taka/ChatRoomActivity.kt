@@ -72,7 +72,7 @@ class ChatRoomActivity : AppCompatActivity() {
         recycler_talks = binding.recyclerMessages
         btn_submit = binding.btnSubmit
         txt_title = binding.txtTItle
-        txt_title.text = opponentUser!!.name ?: ""
+        txt_title.text = opponentUser!!.nickname ?: ""
 
     }
 

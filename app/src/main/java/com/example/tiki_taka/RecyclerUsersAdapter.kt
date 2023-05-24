@@ -68,7 +68,7 @@ class RecyclerUsersAdapter(val context: Context) :
         if (target.equals("")) {      //검색어 없는 경우 전체 목록 표시
             users = allUsers.clone() as ArrayList<User>
         } else {
-            var matchedList = allUsers.filter{ it.name!!.contains(target)}//검색어 포함된 항목 불러오기
+            var matchedList = allUsers.filter{ it.nickname!!.contains(target)}//검색어 포함된 항목 불러오기
             users.clear()
             matchedList.forEach{users.add(it)}
         }
@@ -81,7 +81,7 @@ class RecyclerUsersAdapter(val context: Context) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.txt_name.text= users[position].name
+        holder.txt_name.text= users[position].nickname
         holder.txt_email.text= users[position].email
 
         holder.background.setOnClickListener()

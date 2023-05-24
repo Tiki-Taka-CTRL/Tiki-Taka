@@ -77,7 +77,7 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
                     for (data in snapshot.children) {
                         holder.chatRoomKey = data.key.toString()!!             //채팅방 키 초기화
                         holder.opponentUser = data.getValue<User>()!!         //상대방 정보 초기화
-                        holder.txt_name.text = data.getValue<User>()!!.name.toString()     //상대방 이름 초괴화
+                        holder.txt_name.text = data.getValue<User>()!!.nickname.toString()     //상대방 이름 초괴화
                     }
                 }
             })

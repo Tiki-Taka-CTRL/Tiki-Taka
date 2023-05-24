@@ -3,7 +3,9 @@ package model
 import java.io.Serializable
 
 data class User(
-    val name: String? = "",
     val uid: String? = "",
-    val email: String? = ""
+    val nickname: String? = "",
+    val email: String? = "",
+    val country: String? = "",
+    val city: String? = ""
 ) : Serializable
