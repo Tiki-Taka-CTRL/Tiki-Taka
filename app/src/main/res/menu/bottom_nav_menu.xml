@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/first"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/chat"
+        android:title="Chat"/>
+    <item android:id="@+id/second"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/myplace"
+        android:title="Myplace" />
+    <item android:id="@+id/third"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/friend"
+        android:title="Friend" />
+    <item android:id="@+id/forth"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/profile"
+        android:title="Profile" />
+</menu>
