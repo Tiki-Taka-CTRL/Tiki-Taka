@@ -9,8 +9,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Klab"
-        tools:targetApi="31">
+        android:theme="@style/Theme.TikiTaka"
+        tools:targetApi="33">
         <activity
             android:name=".Join2Activity"
             android:exported="true" />
@@ -20,7 +20,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat"/>
+            />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -36,8 +36,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat">
+            android:exported="true">
         </activity>
         <activity
             android:name=".SignUpActivity"
