@@ -1,4 +1,4 @@
-package com.example.tiki_taka
+package com.example.k_lab
 
 import org.junit.Test
 

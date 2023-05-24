@@ -1,4 +1,4 @@
-package com.example.tiki_taka
+package com.example.k_lab
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -16,5 +16,6 @@ class SplashActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }, 2000)
+
     }
 }

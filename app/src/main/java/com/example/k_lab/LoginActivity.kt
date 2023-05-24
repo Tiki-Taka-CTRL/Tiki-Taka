@@ -1,10 +1,10 @@
-package com.example.tiki_taka
+package com.example.k_lab
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.tiki_taka.databinding.ActivityLoginBinding
+import com.example.k_lab.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
 
         //회원가입 화면 인텐트
         binding.signin.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, JoinActivity::class.java)
             startActivity(intent)
         }
 
