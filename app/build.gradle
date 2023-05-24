@@ -5,11 +5,15 @@ plugins {
 }
 
 android {
-    namespace 'com.example.k_lab'
+    namespace 'com.example.tiki_taka'
     compileSdk 33
 
+    buildFeatures{
+        viewBinding true
+    }
+
     defaultConfig {
-        applicationId "com.example.k_lab"
+        applicationId "com.example.tiki_taka"
         minSdk 24
         targetSdk 33
         versionCode 1

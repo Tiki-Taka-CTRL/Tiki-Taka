@@ -1,9 +1,9 @@
-package com.example.k_lab
+package com.example.tiki_taka
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.k_lab.databinding.ActivityJoin2Binding
+import com.example.tiki_taka.databinding.ActivityJoin2Binding
 
 class Join2Activity : AppCompatActivity() {
     lateinit var binding: ActivityJoin2Binding

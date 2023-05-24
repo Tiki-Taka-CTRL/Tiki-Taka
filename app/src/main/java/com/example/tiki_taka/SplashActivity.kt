@@ -1,4 +1,4 @@
-package com.example.k_lab
+package com.example.tiki_taka
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

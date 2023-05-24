@@ -1,4 +1,4 @@
-package com.example.k_lab
+package com.example.tiki_taka
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import com.example.k_lab.databinding.ActivityJoinBinding
+import com.example.tiki_taka.databinding.ActivityJoinBinding
 
 class JoinActivity : AppCompatActivity() {
     lateinit var binding: ActivityJoinBinding

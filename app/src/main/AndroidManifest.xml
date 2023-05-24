@@ -19,19 +19,12 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            android:name=".ChatRoomActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddChatRoomActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,15 +32,18 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".AddChatRoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+        <activity
             android:name=".SignUpActivity"
             android:exported="true"
             android:label="@string/title_activity_sign_up"
             android:theme="@style/Theme.TikiTaka.NoActionBar">
-
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
     </application>
-
 </manifest>

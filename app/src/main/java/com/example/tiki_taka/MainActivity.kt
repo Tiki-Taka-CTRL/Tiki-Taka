@@ -1,8 +1,8 @@
-package com.example.k_lab
+package com.example.tiki_taka
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.k_lab.databinding.ActivityMainBinding
+import com.example.tiki_taka.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

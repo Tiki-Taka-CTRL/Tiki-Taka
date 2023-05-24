@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "k-lab"
+rootProject.name = "Tiki-Taka"
 include ':app'
