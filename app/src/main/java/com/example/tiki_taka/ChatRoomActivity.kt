@@ -1,9 +1,12 @@
 package com.example.tiki_taka
 
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -45,6 +48,7 @@ class ChatRoomActivity : AppCompatActivity() {
         initializeView()
         initializeListener()
         setupChatRooms()
+        setTimer()
     }
     fun <T: Serializable> Intent.intentSerializable(key: String, clazz: Class<T>): T? {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -69,6 +73,7 @@ class ChatRoomActivity : AppCompatActivity() {
         btn_submit = binding.btnSubmit
         txt_title = binding.txtTItle
         txt_title.text = opponentUser!!.name ?: ""
+
     }
 
     fun initializeListener() {   //버튼 클릭 시 리스너 초기화
@@ -141,5 +146,25 @@ class ChatRoomActivity : AppCompatActivity() {
     fun setupRecycler() {            //목록 초기화 및 업데이트
         recycler_talks.layoutManager = LinearLayoutManager(this)
         recycler_talks.adapter = RecyclerMessagesAdapter(this, chatRoomKey, opponentUser.uid)
+    }
+
+    fun setTimer(){
+        var mSecond = 5
+        val mTimer = Timer()
+        val mTimerTask = object : TimerTask() {
+            override fun run() {
+                val mHandler = Handler(Looper.getMainLooper())
+                mHandler.postDelayed({
+                    mSecond -= 1
+                    binding.missionBtn.text = mSecond.toString()
+                    if (mSecond <= 0) {
+                        binding.missionBtn.text = "Accept"
+                        binding.missionBtn.isEnabled = true
+                        mTimer.cancel()
+                    }
+                }, 0)
+            }
+        }
+        mTimer.schedule(mTimerTask, 0, 1000)
     }
 }
