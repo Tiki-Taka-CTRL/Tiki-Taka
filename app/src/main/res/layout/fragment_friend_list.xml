@@ -32,21 +32,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Level 1"
-            app:textAppearance="@style/Widget.MaterialComponents.TabLayout.Tab" />
+             />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabItem2_friend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Level 2"
-            app:textAppearance="@style/Widget.MaterialComponents.TabLayout.Tab" />
+             />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabItem3_friend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Level 3"
-            app:textAppearance="@style/Widget.MaterialComponents.TabLayout.Tab" />
+             />
     </com.google.android.material.tabs.TabLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
