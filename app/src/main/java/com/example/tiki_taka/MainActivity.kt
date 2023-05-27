@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 when (it.itemId) {
                     R.id.first -> {
                         // 다른 프래그먼트 화면으로 이동하는 기능
-                        val chatFragment = ChatFragment()
+                        val chatFragment = ChattingFragment()
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.fl_container, chatFragment).commit()
                     }

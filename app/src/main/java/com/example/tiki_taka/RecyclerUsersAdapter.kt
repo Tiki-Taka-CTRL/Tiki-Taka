@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tiki_taka.databinding.ListPersonItemBinding
+import com.example.tiki_taka.databinding.ItemChattingBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -76,14 +76,12 @@ class RecyclerUsersAdapter(val context: Context) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.list_person_item, parent, false)
-        return ViewHolder(ListPersonItemBinding.bind(view))
+        val view = LayoutInflater.from(context).inflate(R.layout.item_chatting, parent, false)
+        return ViewHolder(ItemChattingBinding.bind(view))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.txt_name.text= users[position].nickname
-        holder.txt_email.text= users[position].email
-
         holder.background.setOnClickListener()
         {
             addChatRoom(position)        //해당 사용자 선택 시
@@ -138,11 +136,11 @@ class RecyclerUsersAdapter(val context: Context) :
         return users.size
     }
 
-    inner class ViewHolder(itemView: ListPersonItemBinding) :
+    inner class ViewHolder(itemView: ItemChattingBinding) :
         RecyclerView.ViewHolder(itemView.root) {
-        var background = itemView.background
-        var txt_name = itemView.txtName
-        var txt_email = itemView.txtEmail
+        var opponent_img = itemView.imgItemChattingProfile
+        var txt_name = itemView.tvItemChattingName
+        var background = itemView.itemChattingBg
     }
 
 }

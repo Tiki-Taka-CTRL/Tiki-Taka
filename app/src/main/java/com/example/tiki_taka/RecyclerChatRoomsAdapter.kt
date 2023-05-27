@@ -10,7 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tiki_taka.databinding.ListChatroomItemBinding
+import com.example.tiki_taka.databinding.ItemChattingBinding
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -57,8 +58,8 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.list_chatroom_item, parent, false)
-        return ViewHolder(ListChatroomItemBinding.bind(view))
+        val view = LayoutInflater.from(context).inflate(R.layout.item_chatting, parent, false)
+        return ViewHolder(ItemChattingBinding.bind(view))
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var userIdList = chatRooms[position].users!!.keys    //채팅방에 포함된 사용자 키 목록
@@ -74,17 +75,23 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {}
                 override fun onDataChange(snapshot: DataSnapshot) {
+                    Log.d("test", snapshot.toString())
                     for (data in snapshot.children) {
                         holder.chatRoomKey = data.key.toString()!!             //채팅방 키 초기화
                         holder.opponentUser = data.getValue<User>()!!         //상대방 정보 초기화
                         holder.txt_name.text = data.getValue<User>()!!.nickname.toString()     //상대방 이름 초괴화
+                        //Log.d("test", holder.txt_name.text as String)
                     }
                 }
             })
         holder.background.setOnClickListener()               //채팅방 항목 선택 시
         {
+            Log.d("test1", chatRooms.get(position).toString())
+            Log.d("test2", holder.opponentUser.toString())
+            Log.d("test3", chatRoomKeys[position])
             try {
                 var intent = Intent(context, ChatRoomActivity::class.java) // 나중에 수정필요
+
                 intent.putExtra("ChatRoom", chatRooms.get(position))      //채팅방 정보
                 intent.putExtra("Opponent", holder.opponentUser)          //상대방 사용자 정보
                 intent.putExtra("ChatRoomKey", chatRoomKeys[position])     //채팅방 키 정보
@@ -109,7 +116,7 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
                 chatRooms[position].messages!!.values.sortedWith(compareBy { it.sendDate })    //메시지 목록에서 시각을 비교하여 가장 마지막 메시지  가져오기
                     .last()
             holder.txt_message.text = lastMessage.content                //마지막 메시지 표시
-            holder.txt_date.text = getLastMessageTimeString(lastMessage.sendDate)   //마지막으로 전송된 시각 표시
+               //마지막으로 전송된 시각 표시
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -185,14 +192,13 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
         return chatRooms.size
     }
 
-    inner class ViewHolder(itemView: ListChatroomItemBinding) :
+    inner class ViewHolder(itemView: ItemChattingBinding) :
         RecyclerView.ViewHolder(itemView.root) {
         var opponentUser = User("", "")
         var chatRoomKey = ""
-        var background = itemView.background
-        var txt_name = itemView.txtName
-        var txt_message = itemView.txtMessage
-        var txt_date = itemView.txtMessageDate
+        var background = itemView.itemChattingBg
+        var txt_name = itemView.tvItemChattingName
+        var txt_message = itemView.tvItemChattingContent
         var txt_chatCount = itemView.txtChatCount
     }
 }

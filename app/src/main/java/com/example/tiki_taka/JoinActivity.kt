@@ -90,7 +90,7 @@ class JoinActivity : AppCompatActivity() {
                         val userId = user?.uid
                         val userIdSt = userId.toString()
                         database.child("users")
-                            .child(userId.toString()).setValue(User(userIdSt, nickname, email)) { databaseError, _ ->
+                            .child(userId.toString()).setValue(User(userIdSt, nickname, email,country, city)) { databaseError, _ ->
                                 if (databaseError != null) {
                                     // 에러 처리
                                     Log.e("테스트", "데이터 저장 실패: ${databaseError.message}")

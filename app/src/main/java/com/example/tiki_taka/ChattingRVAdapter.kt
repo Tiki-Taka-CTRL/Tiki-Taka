@@ -3,7 +3,7 @@
 //import android.view.LayoutInflater
 //import android.view.ViewGroup
 //import androidx.recyclerview.widget.RecyclerView
-//import com.example.tiki_taka.databinding.ItemChattingFriendBinding
+//
 //
 //class ChattingRVAdapter(var items: ArrayList<Data_chatting>) :
 //    RecyclerView.Adapter<ChattingRVAdapter.Holder>() {
