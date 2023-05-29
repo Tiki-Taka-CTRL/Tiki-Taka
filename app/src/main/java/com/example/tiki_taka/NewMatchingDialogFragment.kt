@@ -76,12 +76,11 @@ class NewMatchingDialogFragment : DialogFragment() {
                         requireActivity().startActivity(Intent(requireContext(), MainActivity::class.java))
                         goToChatRoom(chatRoom, opponent_user, opponent_user.uid+currnentUser.uid)                    //해당 채팅방으로 이동
                     }
-
                 }
             })
     }
 
-    fun goToChatRoom(chatRoom: ChatRoom, opponentUid: User,string: String) {       //채팅방으로 이동
+    fun goToChatRoom(chatRoom: ChatRoom, opponentUid: User, string: String) {       //채팅방으로 이동
         var intent = Intent(requireContext(), ChatRoomActivity::class.java)
         intent.putExtra("ChatRoom", chatRoom)       //채팅방 정보
         intent.putExtra("Opponent", opponentUid)    //상대방 정보
