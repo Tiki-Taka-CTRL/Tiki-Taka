@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         mainBnv.run()
         {
-            setOnNavigationItemSelectedListener {
+            setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.first -> {
                         // 다른 프래그먼트 화면으로 이동하는 기능
@@ -41,9 +41,9 @@ class MainActivity : AppCompatActivity() {
                             .replace(R.id.fl_container, myplaceFragment).commit()
                     }
                     R.id.third -> {
-                        val friendFragment = FriendFragment()
+                        val friendListFragment = FriendListFragment()
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.fl_container, friendFragment).commit()
+                            .replace(R.id.fl_container, friendListFragment).commit()
                     }
                     R.id.forth -> {
                         val profileFragment = ProfileFragment()
