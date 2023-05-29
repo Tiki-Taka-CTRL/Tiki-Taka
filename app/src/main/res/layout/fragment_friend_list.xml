@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".FriendListFragment">
 
     <TextView
-        android:id="@+id/tv_friend_title"
+        android:id="@+id/tv_friendList_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -13,40 +15,34 @@
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/tab_friend"
+        app:layout_constraintBottom_toTopOf="@id/tab_friendList"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_friend"
+        android:id="@+id/tab_friendList"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toTopOf="@id/view_friendList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_friendList_title"
+        app:tabSelectedTextColor="@color/teal_700"
+        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+        app:tabTextColor="@color/dark_gray" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_friendList"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_friend_title">
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabItem1_friend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Level 1"
-             />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabItem2_friend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Level 2"
-             />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabItem3_friend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Level 3"
-             />
-    </com.google.android.material.tabs.TabLayout>
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tab_friendList"
+        app:layout_constraintStart_toStartOf="@id/tab_friendList"
+        app:layout_constraintTop_toBottomOf="@id/tab_friendList" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
