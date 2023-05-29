@@ -39,7 +39,7 @@ class ChatRoomActivity : AppCompatActivity() {
     lateinit var opponentUser: User
     lateinit var chatRoomKey: String
     lateinit var myUid: String
-
+    lateinit var opponent_uid: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatRoomBinding.inflate(layoutInflater)
@@ -60,7 +60,7 @@ class ChatRoomActivity : AppCompatActivity() {
     fun initializeProperty() {  //변수 초기화
         myUid = FirebaseAuth.getInstance().currentUser?.uid!!              //현재 로그인한 유저 id
         firebaseDatabase = FirebaseDatabase.getInstance().reference!!
-
+        opponent_uid = intent.getStringExtra("opponent_uid")!!
         chatRoom = (intent.getSerializableExtra("ChatRoom")) as ChatRoom      //채팅방 정보
         chatRoomKey = intent.getStringExtra("ChatRoomKey")!!            //채팅방 키
         opponentUser = (intent.getSerializableExtra("Opponent")) as User    //상대방 유저 정보
@@ -98,7 +98,7 @@ class ChatRoomActivity : AppCompatActivity() {
         val myUid = FirebaseAuth.getInstance().currentUser?.uid.toString()
         var firebaseDatabaseChatRoom: DatabaseReference = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("ChatRoom")
         firebaseDatabaseChatRoom
-            .child("chatRooms").orderByChild("users/${opponentUser.uid}").equalTo(myUid)    //상대방의 Uid가 포함된 목록이 있는지 확인
+            .child("chatRooms").orderByChild("users/${opponent_uid}").equalTo(myUid)    //상대방의 Uid가 포함된 목록이 있는지 확인
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {}
                 override fun onDataChange(snapshot: DataSnapshot) {
