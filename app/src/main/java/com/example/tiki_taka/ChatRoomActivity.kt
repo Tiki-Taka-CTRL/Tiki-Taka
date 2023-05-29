@@ -39,7 +39,6 @@ class ChatRoomActivity : AppCompatActivity() {
     lateinit var opponentUser: User
     lateinit var chatRoomKey: String
     lateinit var myUid: String
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatRoomBinding.inflate(layoutInflater)
@@ -60,7 +59,6 @@ class ChatRoomActivity : AppCompatActivity() {
     fun initializeProperty() {  //변수 초기화
         myUid = FirebaseAuth.getInstance().currentUser?.uid!!              //현재 로그인한 유저 id
         firebaseDatabase = FirebaseDatabase.getInstance().reference!!
-
         chatRoom = (intent.getSerializableExtra("ChatRoom")) as ChatRoom      //채팅방 정보
         chatRoomKey = intent.getStringExtra("ChatRoomKey")!!            //채팅방 키
         opponentUser = (intent.getSerializableExtra("Opponent")) as User    //상대방 유저 정보

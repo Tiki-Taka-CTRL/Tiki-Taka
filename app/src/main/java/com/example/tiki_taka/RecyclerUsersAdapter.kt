@@ -111,7 +111,6 @@ class RecyclerUsersAdapter(val context: Context) :
                     if (snapshot.value== null) {              //채팅방이 없는 경우
                         database2.child("chatRooms").child(opponent.uid+currnentUser.uid).setValue(chatRoom).addOnSuccessListener{// 채팅방 새로 생성 후 이동
                             goToChatRoom(chatRoom, opponent,opponent.uid+currnentUser.uid)
-
                         }
                     } else {
                         context.startActivity(Intent(context, MainActivity::class.java))
@@ -120,7 +119,6 @@ class RecyclerUsersAdapter(val context: Context) :
 
                 }
             })
-
     }
 
     fun goToChatRoom(chatRoom: ChatRoom, opponentUid: User,string: String) {       //채팅방으로 이동

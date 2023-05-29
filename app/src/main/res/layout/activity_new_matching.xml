@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewMatchingActivity">
+    tools:context=".NewMatchingActivity"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/tv_newMatching_title"
@@ -176,6 +177,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear_newMatching_interests" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
