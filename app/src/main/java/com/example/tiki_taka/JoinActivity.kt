@@ -80,7 +80,7 @@ class JoinActivity : AppCompatActivity() {
         var password = edt_password.text.toString()
         var nickname = edt_nickname.text.toString()
         var country = binding.spinnerCountry.selectedItem.toString()
-        var city = binding.spinnerCountry.selectedItem.toString()
+        var city = binding.spinnerCity.selectedItem.toString()
         println(country)
         auth.createUserWithEmailAndPassword(email, password)      //FirebaseAuth에 회원가입 성공 시
             .addOnCompleteListener(this) { task ->
@@ -90,7 +90,7 @@ class JoinActivity : AppCompatActivity() {
                         val userId = user?.uid
                         val userIdSt = userId.toString()
                         database.child("users")
-                            .child(userId.toString()).setValue(User(userIdSt, nickname, email,country, city)) { databaseError, _ ->
+                            .child(userId.toString()).setValue(User(userIdSt, nickname, email, country, city)) { databaseError, _ ->
                                 if (databaseError != null) {
                                     // 에러 처리
                                     Log.e("테스트", "데이터 저장 실패: ${databaseError.message}")

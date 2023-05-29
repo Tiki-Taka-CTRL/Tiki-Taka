@@ -17,4 +17,6 @@ class NewMatchingActivity : AppCompatActivity() {
             //submit누르면 유효성 매칭 정보 확인 후 매칭 다이얼로그 띄우기
         }
     }
+
+
 }
