@@ -1,15 +1,14 @@
 package com.example.tiki_taka
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.example.tiki_taka.databinding.ActivityNewMatchingBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -49,12 +48,18 @@ class NewMatchingActivity : AppCompatActivity() {
                         userData -> 로그인 유저 데이터
                         t -> db에 있는 모든 유저 데이터
                          */
-                        if (userData.child("country").value.toString() == t.child("country").value.toString()) {  //country 가 같은 경우
+                        if ((userData.child("country").value.toString() == t.child("country").value.toString())) {  //country 가 같은 경우
+
                             var bundle = Bundle()
                             val dialog = NewMatchingDialogFragment()
                             opponent_user = t.getValue<User>()!!
-                            bundle.putSerializable("opponent_user", opponent_user)
+                            if(isMatched(opponent_user)){
+                                Toast.makeText(this@NewMatchingActivity,"No Matching...",Toast.LENGTH_SHORT).show()
+                                break
+                            }
 
+
+                            bundle.putSerializable("opponent_user", opponent_user)
                             dialog.arguments = bundle
                             dialog.show(supportFragmentManager, "NewMatchingDialog")
                             break
@@ -67,6 +72,21 @@ class NewMatchingActivity : AppCompatActivity() {
                 TODO("Not yet implemented")
             }
         })
+    }
+
+     fun isMatched(opponent : User): Boolean {
+         var check : Boolean = true
+         val currnentUser = FirebaseAuth.getInstance().currentUser!!
+         val database2: DatabaseReference = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("ChatRoom")
+         database2.child("chatRooms")
+             .orderByChild("users/${opponent.uid}").equalTo(currnentUser.uid)
+             .addListenerForSingleValueEvent(object : ValueEventListener {
+                 override fun onCancelled(error: DatabaseError) {}
+                 override fun onDataChange(snapshot: DataSnapshot) {
+                     check = snapshot.value != null // 채팅방이 없으면 false
+                 }
+             })
+         return check
     }
 
     fun setUserData(){
