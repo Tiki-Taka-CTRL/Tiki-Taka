@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MissionActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +15,7 @@
             android:id="@+id/mission_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:adjustViewBounds="true"
             android:text="Today's Mission"
             android:textSize="27sp"
             android:textStyle="bold"
@@ -37,18 +34,16 @@
             android:layout_height="30dp"
             android:paddingLeft="15dp"
             android:text="Match your friend's taste!"
-            android:textSize="16sp"
-            android:fontFamily="@font/notosans_bold"/>
+            android:textSize="16sp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
             android:paddingLeft="17dp"
-            android:text="1. Does your friend like Korean food?"
+            android:text="1. Your Friend's Question 1"
             android:textSize="17sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/notosans_bold"/>
+            android:textColor="@color/black"/>
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switch_button"
@@ -60,64 +55,49 @@
             android:background="@null"
             android:paddingTop="10dp"
             android:paddingLeft="150dp"
-            android:paddingRight="150dp"
-            app:switchMinWidth="10dp"/>
+            android:paddingRight="150dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="25dp"
             android:paddingLeft="17dp"
-            android:text="2. What is his or her hobby?"
+            android:text="2. Your Friend's Question 2"
             android:textSize="17sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/notosans_bold"/>
+            android:textColor="@color/black"/>
 
         <GridLayout
             android:id="@+id/mission_num2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="13dp"
-            android:paddingHorizontal="45dp"
+            android:paddingTop="15dp"
+            android:paddingLeft="80dp"
             android:columnCount="2">
 
             <CheckBox
                 android:id="@+id/checkbox1"
-                android:layout_width="125dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/CustomCheckboxStyle"
-                android:layout_marginRight="10dp"
-                android:text="swim"
-                android:fontFamily="@font/notosans_bold"/>
+                android:paddingRight="45dp"
+                android:text="num1" />
 
             <CheckBox
                 android:id="@+id/checkbox2"
-                android:layout_width="125dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/CustomCheckboxStyle"
-                android:layout_marginRight="10dp"
-                android:text="drawing"
-                android:fontFamily="@font/notosans_bold"/>
+                android:text="num2" />
 
             <CheckBox
                 android:id="@+id/checkbox3"
-                android:layout_width="125dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/CustomCheckboxStyle"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:text="drum"
-                android:fontFamily="@font/notosans_bold"/>
+                android:text="num3" />
 
             <CheckBox
                 android:id="@+id/checkbox4"
-                android:layout_width="125dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/CustomCheckboxStyle"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:text="writing"
-                android:fontFamily="@font/notosans_bold"/>
+                android:text="num4" />
 
         </GridLayout>
 
@@ -125,8 +105,8 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="270dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="280dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_gravity="center"
@@ -140,6 +120,5 @@
 
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
