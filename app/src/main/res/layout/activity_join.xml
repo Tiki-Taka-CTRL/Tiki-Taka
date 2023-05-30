@@ -396,6 +396,7 @@
                 android:layout_width="180dp"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:text="Already have an account?"
                 android:textSize="15dp" />
 
