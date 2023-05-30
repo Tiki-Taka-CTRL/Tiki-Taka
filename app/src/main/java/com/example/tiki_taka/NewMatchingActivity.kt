@@ -1,6 +1,6 @@
 package com.example.tiki_taka
 
-import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +12,7 @@ import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import model.ChatRoom
 import model.User
 
 class NewMatchingActivity : AppCompatActivity() {
@@ -19,12 +20,14 @@ class NewMatchingActivity : AppCompatActivity() {
     lateinit var database: FirebaseDatabase
     lateinit var user: FirebaseUser
     lateinit var userData: DataSnapshot
+    var chatRooms: ArrayList<ChatRoom> = arrayListOf()
     lateinit var opponent_user : User
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityNewMatchingBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         init()
+        setChatRoomData()
         setUserData()
     }
     private fun init() {
@@ -49,16 +52,21 @@ class NewMatchingActivity : AppCompatActivity() {
                         t -> db에 있는 모든 유저 데이터
                          */
                         if ((userData.child("country").value.toString() == t.child("country").value.toString())) {  //country 가 같은 경우
-
+                            for (i in 0 until chatRooms.size){
+                                Log.d("chatrooms", chatRooms[i].users?.keys.toString())
+                                if(chatRooms[i].users?.keys?.contains( t.child("uid").value.toString()) == true){
+                                    if(chatRooms[i].users?.keys?.contains( user.uid) == true){
+                                        
+                                    }
+                                }
+                            }
                             var bundle = Bundle()
                             val dialog = NewMatchingDialogFragment()
                             opponent_user = t.getValue<User>()!!
-                            if(isMatched(opponent_user)){
-                                Toast.makeText(this@NewMatchingActivity,"No Matching...",Toast.LENGTH_SHORT).show()
-                                break
-                            }
-
-
+//                            if(isMatched(opponent_user)){
+//                                Toast.makeText(this@NewMatchingActivity,"No Matching...",Toast.LENGTH_SHORT).show()
+//                                break
+//                            }
                             bundle.putSerializable("opponent_user", opponent_user)
                             dialog.arguments = bundle
                             dialog.show(supportFragmentManager, "NewMatchingDialog")
@@ -88,7 +96,23 @@ class NewMatchingActivity : AppCompatActivity() {
              })
          return check
     }
-
+    fun setChatRoomData(){
+        val currnentUser = FirebaseAuth.getInstance().currentUser!!
+        val database2: DatabaseReference = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("ChatRoom")
+        database2.child("chatRooms")
+            .orderByChild("users/${currnentUser.uid}")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {}
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (data in snapshot.children) {
+                        val item = data.getValue<ChatRoom>()
+                        if (item != null) {
+                            chatRooms.add(item)
+                        }
+                    }
+                }
+            })
+    }
     fun setUserData(){
         user = FirebaseAuth.getInstance().currentUser!!           //현재 로그인한 유저 id
         val users = database.getReference("User")
