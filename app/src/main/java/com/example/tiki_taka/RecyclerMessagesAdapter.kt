@@ -93,7 +93,7 @@ class RecyclerMessagesAdapter(
         var background = itemView.background
         var txtMessage = itemView.tvMessage
         var txtDate = itemView.tvDate
-        var txtIsShown = itemView.tvShow
+
 
         fun bind(position: Int) {           //메시지 UI 항목 초기화
             var message = messages[position]
@@ -103,10 +103,10 @@ class RecyclerMessagesAdapter(
 
             txtDate.text = getDateText(sendDate)
 
-            if (message.confirmed)           //확인 여부 표시
-                txtIsShown.visibility = View.GONE
-            else
-                txtIsShown.visibility = View.VISIBLE
+//            if (message.confirmed)           //확인 여부 표시
+//                txtIsShown.visibility = View.GONE
+//            else
+//                txtIsShown.visibility = View.VISIBLE
 
             setShown(position)             //해당 메시지 확인하여 서버로 전송
         }
@@ -148,7 +148,7 @@ class RecyclerMessagesAdapter(
         var background = itemView.background
         var txtMessage = itemView.txtMessage
         var txtDate = itemView.txtDate
-        var txtIsShown = itemView.txtIsShown
+        //var txtIsShown = itemView.txtIsShown
 
         fun bind(position: Int) {            //메시지 UI 레이아웃 초기화
             var message = messages[position]
@@ -157,10 +157,10 @@ class RecyclerMessagesAdapter(
 
             txtDate.text = getDateText(sendDate)
 
-            if (message.confirmed)
-                txtIsShown.visibility = View.GONE
-            else
-                txtIsShown.visibility = View.VISIBLE
+//            if (message.confirmed)
+//                txtIsShown.visibility = View.GONE
+//            else
+//                txtIsShown.visibility = View.VISIBLE
         }
 
         fun getDateText(sendDate: String): String {        //메시지 전송 시각 생성

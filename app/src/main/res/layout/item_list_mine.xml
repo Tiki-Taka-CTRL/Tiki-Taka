@@ -28,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
+        android:textColor="@color/black"
         android:text="오전 10:23"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/txt_message"
@@ -36,14 +37,4 @@
         app:layout_constraintVertical_bias="0.8"
         tools:ignore="TextSizeCheck" />
 
-    <TextView
-        android:id="@+id/txt_isShown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:text="1"
-        android:textColor="#FFBE3C"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_date"
-        app:layout_constraintEnd_toStartOf="@+id/txt_date"
-        app:layout_constraintTop_toTopOf="@+id/txt_date" />
 </androidx.constraintlayout.widget.ConstraintLayout>
