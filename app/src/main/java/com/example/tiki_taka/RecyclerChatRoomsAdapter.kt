@@ -1,5 +1,6 @@
 package com.example.tiki_taka
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.icu.util.TimeZone
@@ -61,7 +62,7 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
         val view = LayoutInflater.from(context).inflate(R.layout.item_chatting, parent, false)
         return ViewHolder(ItemChattingBinding.bind(view))
     }
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
         var userIdList = chatRooms[position].users!!.keys    //채팅방에 포함된 사용자 키 목록
         var opponent = userIdList.first { it != myUid }  //상대방 사용자 키
 //        Log.d("opponentid..setupAlluserList",opponent)
@@ -80,6 +81,10 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
                         holder.chatRoomKey = data.key.toString()!!             //채팅방 키 초기화
                         holder.opponentUser = data.getValue<User>()!!         //상대방 정보 초기화
                         holder.txt_name.text = data.getValue<User>()!!.nickname.toString()     //상대방 이름 초괴화
+                        if (chatRooms[position].messages!!.isNotEmpty()) {         //채팅방 메시지가 존재하는 경우
+                            setupLastMessageAndDate(holder, position)        //마지막 메시지 및 시각 초기화
+                            setupMessageCount(holder, position)
+                        }
                         //Log.d("test", holder.txt_name.text as String)
                     }
                 }

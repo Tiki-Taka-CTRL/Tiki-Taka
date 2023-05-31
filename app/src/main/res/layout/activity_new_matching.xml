@@ -75,6 +75,8 @@
         android:id="@+id/switch_newMatching"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:track="@drawable/switch_track_selector"
+        android:thumb="@drawable/switch_thumb_selector"
         app:layout_constraintBottom_toTopOf="@id/tv_newMatching_num2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
