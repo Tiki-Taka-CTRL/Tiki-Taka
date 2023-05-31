@@ -1,11 +1,15 @@
 package com.example.tiki_taka
 
 
+import NewMatchingFragmentAdapter
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
 import com.example.tiki_taka.databinding.ActivityNewMatchingBinding
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -29,6 +33,11 @@ class NewMatchingActivity : AppCompatActivity() {
     var WhoAmiFrendWith : ArrayList<String> = arrayListOf()
     var switchCheck : Boolean = false
     lateinit var opponent_user: User
+
+    //TabLayout 구현에 필요한 부분
+    private lateinit var viewPager: ViewPager2
+    private lateinit var tabLayout: TabLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityNewMatchingBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -38,8 +47,27 @@ class NewMatchingActivity : AppCompatActivity() {
         setUserData()
         setChatRoomData()
 
+        viewPager = binding.viewNewMatching
+        tabLayout = binding.tabNewMatching
 
+        // Create a list of fragment titles
+        val tabTitles = listOf("Hobby", "Music", "Country", "Major")
 
+        // Create a list of fragments for the ViewPager2
+        val fragments = listOf(
+            NewMatchingTab1Fragment(),
+            NewMatchingTab2Fragment(),
+            NewMatchingTab3Fragment(),
+            NewMatchingTab4Fragment()
+        )
+
+        // Set up the ViewPager2 with the fragments
+        viewPager.adapter = NewMatchingFragmentAdapter(this, fragments)
+
+        // Connect the TabLayout with the ViewPager2
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = tabTitles[position]
+        }.attach()
     }
 
     private fun init() {
@@ -52,8 +80,8 @@ class NewMatchingActivity : AppCompatActivity() {
         binding.switchNewMatching.setOnCheckedChangeListener { CompoundButton, onSwitch ->
             //  스위치가 켜지면
             if (onSwitch) {
-                    Log.d("switch","on")
-                    switchCheck = true //스위치 켜짐
+                Log.d("switch","on")
+                switchCheck = true //스위치 켜짐
             }
             //  스위치가 꺼지면
             else {
@@ -242,5 +270,4 @@ class NewMatchingActivity : AppCompatActivity() {
         return finduser
     }
 }
-
 
