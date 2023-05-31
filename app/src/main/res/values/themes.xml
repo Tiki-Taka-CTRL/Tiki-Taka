@@ -14,9 +14,18 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Spinner theme -->
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
 
     </style>
+    <style name="SpinnerItem" parent="@style/Widget.AppCompat.TextView.SpinnerItem">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="SpinnerItem.DropDownItem" parent="@style/Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="BottomNavigationView">
         <item name="fontFamily">@font/notosans_medium</item>
     </style>

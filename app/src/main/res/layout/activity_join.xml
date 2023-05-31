@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    android:background="#FFFFFF"
+    tools:context=".JoinActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -345,18 +345,20 @@
                 android:weightSum="1"
                 android:orientation="horizontal">
 
-                <Spinner
+                <androidx.appcompat.widget.AppCompatSpinner
                     android:layout_width="160dp"
                     android:layout_height="45dp"
                     android:layout_marginRight="10dp"
                     android:id="@+id/spinner_country"
+                    android:popupBackground="@color/white"
                     android:spinnerMode="dropdown"
                     android:layout_weight="0.21"/>
 
-                <Spinner
+                <androidx.appcompat.widget.AppCompatSpinner
                     android:layout_width="160dp"
                     android:layout_height="45dp"
                     android:id="@+id/spinner_city"
+                    android:popupBackground="@color/white"
                     android:spinnerMode="dropdown"
                     android:layout_weight="0.21" />
             </LinearLayout>
@@ -396,6 +398,7 @@
                 android:layout_width="180dp"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:text="Already have an account?"
                 android:textSize="15dp" />
 
