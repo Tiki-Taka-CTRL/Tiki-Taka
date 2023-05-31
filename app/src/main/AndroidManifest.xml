@@ -49,5 +49,9 @@
             android:label="@string/title_activity_sign_up"
             android:theme="@style/Theme.TikiTaka.NoActionBar">
         </activity>
+        <activity
+            android:name=".MissionActivity"
+            android:exported="true"
+            />
     </application>
 </manifest>

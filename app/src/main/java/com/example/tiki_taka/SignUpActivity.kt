@@ -25,6 +25,7 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var edt_name: EditText
     lateinit var binding: ActivitySignUpBinding
     private val database: DatabaseReference = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("User")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)

@@ -24,6 +24,8 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:theme="@style/BottomNavigationView"
+        app:itemIconTint="@drawable/menu_click_color"
+        app:itemTextColor="@drawable/menu_click_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomCheckboxStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:background">@drawable/custom_button_background</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>
