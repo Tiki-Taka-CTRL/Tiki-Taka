@@ -20,6 +20,8 @@ class NewMatchingActivity : AppCompatActivity() {
     lateinit var database: FirebaseDatabase
     lateinit var user: FirebaseUser
     lateinit var userData: DataSnapshot
+    var NedUser: ArrayList<User> = arrayListOf()
+    var korUser: ArrayList<User> = arrayListOf()
     var chatRooms: ArrayList<ChatRoom> = arrayListOf()
     lateinit var opponent_user: User
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +31,7 @@ class NewMatchingActivity : AppCompatActivity() {
         init()
         setChatRoomData()
         setUserData()
+
     }
 
     private fun init() {
@@ -41,6 +44,8 @@ class NewMatchingActivity : AppCompatActivity() {
     }
 
     private fun findNewFriend() {
+        Log.d("getKOUser",korUser.size.toString())
+        Log.d("getNeduser",NedUser.size.toString())
         val users = database.getReference("User")
         users.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -134,8 +139,15 @@ class NewMatchingActivity : AppCompatActivity() {
                 val temp = snapshot.child("users")
                 var target: String
                 for (t in temp.children) {
+                    if(t.getValue<User>()?.country =="Netherlands"){
+                        NedUser.add(t.getValue<User>()!!)
+                    }
+                    else{
+                        korUser.add(t.getValue<User>()!!)
+                    }
                     if (user.uid == t.child("uid").value) {   //로그인 유저가 아닌 경우
                         userData = t
+
                     }
                 }
             }
