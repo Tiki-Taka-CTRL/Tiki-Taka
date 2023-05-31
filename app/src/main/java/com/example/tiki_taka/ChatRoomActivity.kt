@@ -18,6 +18,7 @@ import com.example.tiki_taka.databinding.ActivityChatRoomBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import model.ChatRoom
 import model.Message
@@ -39,6 +40,7 @@ class ChatRoomActivity : AppCompatActivity() {
     lateinit var opponentUser: User
     lateinit var chatRoomKey: String
     lateinit var myUid: String
+    lateinit var cur_user: User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatRoomBinding.inflate(layoutInflater)
@@ -46,6 +48,7 @@ class ChatRoomActivity : AppCompatActivity() {
         initializeProperty()
         initializeView()
         initializeListener()
+        setUserData()
         setupChatRooms()
         setTimer()
     }
@@ -82,6 +85,13 @@ class ChatRoomActivity : AppCompatActivity() {
         btn_submit.setOnClickListener()
         {
             putMessage()
+        }
+
+        binding.missionBtn.setOnClickListener {
+            val intent = Intent(this@ChatRoomActivity, MissionActivity::class.java)
+            intent.putExtra("opponent", opponentUser)
+            intent.putExtra("cur_user", cur_user)
+            startActivity(intent)
         }
     }
 
@@ -164,5 +174,25 @@ class ChatRoomActivity : AppCompatActivity() {
             }
         }
         mTimer.schedule(mTimerTask, 0, 1000)
+    }
+
+    fun setUserData() {
+        val user = FirebaseAuth.getInstance().currentUser!!           //현재 로그인한 유저 id
+        val users = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("User")
+        val result = users.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val temp = snapshot.child("users")
+                var target: String
+                for (t in temp.children) {
+                    if (user.uid == t.child("uid").value) {   //로그인 유저가 아닌 경우
+                        cur_user = t.getValue<User>()!!
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 }

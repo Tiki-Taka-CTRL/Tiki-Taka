@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.widget.CheckBox
 import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
-
+import androidx.appcompat.widget.SwitchCompat
 
 class MissionActivity : AppCompatActivity() {
-    private lateinit var switchButton: Switch
+    private lateinit var switchButton: SwitchCompat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
