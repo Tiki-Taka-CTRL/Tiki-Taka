@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewMatchingActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".NewMatchingActivity">
 
     <TextView
         android:id="@+id/tv_newMatching_title"
@@ -88,79 +88,34 @@
         android:text="2. Friend's interests"
         android:textColor="@color/black"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@id/linear_newMatching_interests"
+        app:layout_constraintBottom_toTopOf="@id/tab_newMatching"
         app:layout_constraintStart_toStartOf="@id/tv_newMatching_explain"
         app:layout_constraintTop_toBottomOf="@id/switch_newMatching" />
 
-    <LinearLayout
-        android:id="@+id/linear_newMatching_interests"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_newMatching"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toTopOf="@id/view_newMatching"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_newMatching_num2"
+        app:tabSelectedTextColor="@color/teal_700"
+        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+        app:tabTextColor="@color/dark_gray" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_newMatching"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         app:layout_constraintBottom_toTopOf="@id/btn_newMatching_submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_newMatching_num2">
-
-        <LinearLayout
-            android:id="@+id/linear_newMatching_btns"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/btn_newMatching_hobby"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@android:color/transparent"
-                android:text="Hobby"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="14dp" />
-
-            <Button
-                android:id="@+id/btn_newMatching_music"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@android:color/transparent"
-                android:text="Music"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="14dp" />
-
-            <Button
-                android:id="@+id/btn_newMatching_country"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@android:color/transparent"
-                android:text="Country"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="14dp" />
-
-            <Button
-                android:id="@+id/btn_newMatching_major"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@android:color/transparent"
-                android:text="Major"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="14dp" />
-        </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/frame_newMatching"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/black" />
-    </LinearLayout>
-
+        app:layout_constraintTop_toBottomOf="@id/tab_newMatching" />
 
     <Button
         android:id="@+id/btn_newMatching_submit"
@@ -176,5 +131,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear_newMatching_interests" />
+        app:layout_constraintTop_toBottomOf="@id/view_newMatching" />
 </androidx.constraintlayout.widget.ConstraintLayout>
