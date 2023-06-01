@@ -80,15 +80,17 @@ class NewMatchingActivity : AppCompatActivity() {
                     Log.d("checkWhoamiFriend",NedUser[set.indexOf(i)].uid.toString())
                     Log.d("checkWhoamiFriend",WhoAmiFrendWith.toString())
                     if(!WhoAmiFrendWith.contains(NedUser[set.indexOf(i)].uid)){ //친구리스트에 이미 있으면
-                        if(userData.key != NedUser[set.indexOf(i)]?.uid){
-                            var bundle = Bundle()
-                            val dialog = NewMatchingDialogFragment()
-                            opponent_user = NedUser[set.indexOf(i)].uid?.let { findUser(it) }!!
-                            Log.d("123456",opponent_user.toString())
-                            bundle.putSerializable("opponent_user", opponent_user)
-                            dialog.arguments = bundle
-                            dialog.show(supportFragmentManager, "NewMatchingDialog")
-                            break
+                        if(userData.key?.let { findUser(it)?.city } == NedUser[set.indexOf(i)]?.city) {
+                            if (userData.key != NedUser[set.indexOf(i)]?.uid) {
+                                var bundle = Bundle()
+                                val dialog = NewMatchingDialogFragment()
+                                opponent_user = NedUser[set.indexOf(i)].uid?.let { findUser(it) }!!
+                                Log.d("123456", opponent_user.toString())
+                                bundle.putSerializable("opponent_user", opponent_user)
+                                dialog.arguments = bundle
+                                dialog.show(supportFragmentManager, "NewMatchingDialog")
+                                break
+                            }
                         }
                     }
                 }
@@ -100,16 +102,18 @@ class NewMatchingActivity : AppCompatActivity() {
                 }
                 Log.d("test1234", WhoAmiFrendWith.toString())
                 for (i in 0 until korUser.size){
-                    if(WhoAmiFrendWith.contains(korUser[set.indexOf(i)].uid)){ //친구리스트에 이미 있으면
-                        if(userData.key != korUser[set.indexOf(i)]?.uid){
-                            var bundle = Bundle()
-                            val dialog = NewMatchingDialogFragment()
-                            opponent_user = korUser[set.indexOf(i)].uid?.let { findUser(it) }!!
-                            Log.d("123456",opponent_user.toString())
-                            bundle.putSerializable("opponent_user", opponent_user)
-                            dialog.arguments = bundle
-                            dialog.show(supportFragmentManager, "NewMatchingDialog")
-                            break
+                    if(!WhoAmiFrendWith.contains(korUser[set.indexOf(i)].uid)){ //친구리스트에 이미 있으면
+                        if(userData.key?.let { findUser(it)?.city } == korUser[set.indexOf(i)]?.city) {
+                            if (userData.key != korUser[set.indexOf(i)]?.uid) {
+                                var bundle = Bundle()
+                                val dialog = NewMatchingDialogFragment()
+                                opponent_user = korUser[set.indexOf(i)].uid?.let { findUser(it) }!!
+                                Log.d("123456", opponent_user.toString())
+                                bundle.putSerializable("opponent_user", opponent_user)
+                                dialog.arguments = bundle
+                                dialog.show(supportFragmentManager, "NewMatchingDialog")
+                                break
+                            }
                         }
                     }
                 }
