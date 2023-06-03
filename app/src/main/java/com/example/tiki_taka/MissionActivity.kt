@@ -2,24 +2,17 @@ package com.example.tiki_taka
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import android.widget.CheckBox
-import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import model.Mission
 import kotlin.random.Random
-import kotlin.random.nextInt
 
 class MissionActivity : AppCompatActivity() {
     private lateinit var switchButton: SwitchCompat
