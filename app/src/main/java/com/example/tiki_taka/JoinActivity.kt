@@ -89,8 +89,9 @@ class JoinActivity : AppCompatActivity() {
                         val user = auth.currentUser
                         val userId = user?.uid
                         val userIdSt = userId.toString()
+                        val input_user : User = User(userIdSt, nickname, email, country, city)
                         database.child("users")
-                            .child(userId.toString()).setValue(User(userIdSt, nickname, email, country, city)) { databaseError, _ ->
+                            .child(userId.toString()).setValue(input_user) { databaseError, _ ->
                                 if (databaseError != null) {
                                     // 에러 처리
                                     Log.e("테스트", "데이터 저장 실패: ${databaseError.message}")
@@ -101,7 +102,9 @@ class JoinActivity : AppCompatActivity() {
                             }
                         Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
                         Log.e("UserId", "$userId")
-                        startActivity(Intent(this@JoinActivity, Join2Activity::class.java))
+                        val intent = Intent(this,Join2Activity::class.java)
+                        intent.putExtra("userinfo",input_user)
+                        startActivity(intent)
                     } catch (e: Exception) {
                         e.printStackTrace()
                         Toast.makeText(this, "화면 이동 중 문제가 발생하였습니다.", Toast.LENGTH_SHORT).show()
