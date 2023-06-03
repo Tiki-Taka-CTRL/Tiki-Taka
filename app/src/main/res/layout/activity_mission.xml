@@ -42,6 +42,7 @@
             android:fontFamily="@font/notosans_bold"/>
 
         <TextView
+            android:id="@+id/title_lv1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
@@ -65,6 +66,7 @@
             app:switchMinWidth="10dp"/>
 
         <TextView
+            android:id="@+id/title_lv2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="25dp"

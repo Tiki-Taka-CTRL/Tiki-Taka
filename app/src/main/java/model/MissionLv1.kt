@@ -3,8 +3,10 @@ package model
 import java.io.Serializable
 
 data class MissionLv1(
-    val check_ans: Boolean = false,
     val level: Int,
+    val check_ans: Boolean?,
     override val title: String,
 
-) : Serializable, Mission
+) : Serializable, Mission{
+    constructor():this(0, null, "")
+}
