@@ -19,7 +19,6 @@ class JoinActivity : AppCompatActivity() {
     lateinit var edt_password: EditText
     lateinit var edt_nickname: EditText
     lateinit var binding: ActivityJoinBinding
-    private val database: DatabaseReference = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("User")
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityJoinBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -81,34 +80,16 @@ class JoinActivity : AppCompatActivity() {
         var nickname = edt_nickname.text.toString()
         var country = binding.spinnerCountry.selectedItem.toString()
         var city = binding.spinnerCity.selectedItem.toString()
-        println(country)
         auth.createUserWithEmailAndPassword(email, password)      //FirebaseAuth에 회원가입 성공 시
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {     //회원 가입 성공 시
-                    try {
-                        val user = auth.currentUser
-                        val userId = user?.uid
-                        val userIdSt = userId.toString()
-                        val input_user : User = User(userIdSt, nickname, email, country, city)
-                        database.child("users")
-                            .child(userId.toString()).setValue(input_user) { databaseError, _ ->
-                                if (databaseError != null) {
-                                    // 에러 처리
-                                    Log.e("테스트", "데이터 저장 실패: ${databaseError.message}")
-                                } else {
-                                    // 성공 처리
-                                    Log.d("테스트", "데이터 저장 성공")
-                                }//Firebase RealtimeDatabase에 User 정보 추가
-                            }
-                        Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
-                        Log.e("UserId", "$userId")
-                        val intent = Intent(this,Join2Activity::class.java)
-                        intent.putExtra("userinfo",input_user)
-                        startActivity(intent)
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                        Toast.makeText(this, "화면 이동 중 문제가 발생하였습니다.", Toast.LENGTH_SHORT).show()
-                    }
+                    val intent = Intent(this,Join2Activity::class.java)
+                    intent.putExtra("email", email)
+                    intent.putExtra("password", password)
+                    intent.putExtra("nickname", nickname)
+                    intent.putExtra("country", country)
+                    intent.putExtra("city", city)
+                    startActivity(intent)
                 } else
                     Toast.makeText(this, "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show()
 

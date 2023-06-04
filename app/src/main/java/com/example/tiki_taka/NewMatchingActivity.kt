@@ -93,9 +93,9 @@ class NewMatchingActivity : AppCompatActivity() {
 
     private fun findNewFriend() {
         var check = 0
-        Log.d("getKOUser",korUser.size.toString())
-        Log.d("getNeduser",NedUser.size.toString())
-        Log.d("getNeduser",WhoAmiFrendWith.toString())
+//        Log.d("getKOUser",korUser.size.toString())
+//        Log.d("getNeduser",NedUser.size.toString())
+//        Log.d("getNeduser",WhoAmiFrendWith.toString())
         val users = database.getReference("User")
         if(switchCheck){//true이면 같은 지역만 서치
             if(userData.child("country").value.toString() == "Netherlands"){//같은 지역에서만
@@ -103,11 +103,11 @@ class NewMatchingActivity : AppCompatActivity() {
                 while(set.size<NedUser.size){
                     set.add((0 until NedUser.size).random())
                 }
-                Log.d("test1234", WhoAmiFrendWith.toString())
+//                Log.d("test1234", WhoAmiFrendWith.toString())
                 for (i in 0 until NedUser.size){
-                    Log.d("checkWhoamiFriend",WhoAmiFrendWith.contains(NedUser[set.indexOf(i)].uid).toString())
-                    Log.d("checkWhoamiFriend",NedUser[set.indexOf(i)].uid.toString())
-                    Log.d("checkWhoamiFriend",WhoAmiFrendWith.toString())
+//                    Log.d("checkWhoamiFriend",WhoAmiFrendWith.contains(NedUser[set.indexOf(i)].uid).toString())
+//                    Log.d("checkWhoamiFriend",NedUser[set.indexOf(i)].uid.toString())
+//                    Log.d("checkWhoamiFriend",WhoAmiFrendWith.toString())
                     if(!WhoAmiFrendWith.contains(NedUser[set.indexOf(i)].uid)){ //친구리스트에 이미 있으면
                         if(userData.key?.let { findUser(it)?.city } == NedUser[set.indexOf(i)]?.city) {
                             if (userData.key != NedUser[set.indexOf(i)]?.uid) {
@@ -144,7 +144,7 @@ class NewMatchingActivity : AppCompatActivity() {
                                 var bundle = Bundle()
                                 val dialog = NewMatchingDialogFragment()
                                 opponent_user = korUser[set.indexOf(i)].uid?.let { findUser(it) }!!
-                                Log.d("123456", opponent_user.toString())
+//                                Log.d("123456", opponent_user.toString())
                                 bundle.putSerializable("opponent_user", opponent_user)
                                 dialog.arguments = bundle
                                 dialog.show(supportFragmentManager, "NewMatchingDialog")
@@ -167,14 +167,14 @@ class NewMatchingActivity : AppCompatActivity() {
             while(set.size<allUsers.size){
                 set.add((0 until allUsers.size).random())
             }
-            Log.d("testset",set.toString())
+//            Log.d("testset",set.toString())
             for (i in 0 until allUsers.size){
                 if(!WhoAmiFrendWith.contains(allUsers[set.indexOf(i)].uid)){ //친구리스트에 없으면
                     if(userData.key != allUsers[set.indexOf(i)]?.uid){
                         var bundle = Bundle()
                         val dialog = NewMatchingDialogFragment()
                         opponent_user = allUsers[set.indexOf(i)].uid?.let { findUser(it) }!!
-                        Log.d("123456",opponent_user.toString())
+//                        Log.d("123456",opponent_user.toString())
                         bundle.putSerializable("opponent_user", opponent_user)
                         dialog.arguments = bundle
                         dialog.show(supportFragmentManager, "NewMatchingDialog")

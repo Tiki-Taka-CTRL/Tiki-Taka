@@ -7,5 +7,6 @@ data class User(
     val nickname: String? = "",
     val email: String? = "",
     val country: String? = "",
-    val city: String? = ""
+    val city: String? = "",
+    var img: Int = 0,
 ) : Serializable

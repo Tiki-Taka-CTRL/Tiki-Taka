@@ -38,7 +38,7 @@ class NewMatchingDialogFragment : DialogFragment() {
 
         opponent_user = bundle!!.getSerializable("opponent_user") as User
         binding.tvNewDialogName.text = opponent_user.nickname.toString()
-
+        binding.imgNewDialog.setImageResource(opponent_user.img)
         binding.btnNewDialogNo.setOnClickListener {
             dismiss()
         }

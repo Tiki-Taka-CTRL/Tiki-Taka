@@ -79,8 +79,10 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
                     Log.d("test", snapshot.toString())
                     for (data in snapshot.children) {
                         holder.chatRoomKey = data.key.toString()!!             //채팅방 키 초기화
-                        holder.opponentUser = data.getValue<User>()!!         //상대방 정보 초기화
-                        holder.txt_name.text = data.getValue<User>()!!.nickname.toString()     //상대방 이름 초괴화
+                        val opponentUser = data.getValue<User>()!!
+                        holder.opponentUser = opponentUser         //상대방 정보 초기화
+                        holder.txt_name.text = opponentUser.nickname.toString()     //상대방 이름 초괴화
+                        holder.user_img.setImageResource(opponentUser.img)
                         if (chatRooms[position].messages!!.isNotEmpty()) {         //채팅방 메시지가 존재하는 경우
                             setupLastMessageAndDate(holder, position)        //마지막 메시지 및 시각 초기화
                             setupMessageCount(holder, position)
@@ -205,5 +207,6 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
         var txt_name = itemView.tvItemChattingName
         var txt_message = itemView.tvItemChattingContent
         var txt_chatCount = itemView.txtChatCount
+        var user_img = itemView.imgItemChattingProfile
     }
 }
