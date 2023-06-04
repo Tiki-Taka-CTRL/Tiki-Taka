@@ -119,9 +119,9 @@ class MissionActivity : AppCompatActivity() {
         checkbox3 = findViewById(R.id.checkbox3)
         checkbox4 = findViewById(R.id.checkbox4)
         submitbtn = findViewById(R.id.btn_submit)
-        question_title = findViewById(R.id.question_title)!!
-        title_lv1 = findViewById(R.id.title_lv1)
-        title_lv2 = findViewById(R.id.title_lv2)
+        question_title = findViewById(R.id.match)!!
+        title_lv1 = findViewById(R.id.mission_Q1)
+        title_lv2 = findViewById(R.id.mission_Q2)
         switch_btn = findViewById(R.id.switch_button)
 
     }
