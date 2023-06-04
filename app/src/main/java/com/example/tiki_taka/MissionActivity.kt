@@ -85,7 +85,7 @@ class MissionActivity : AppCompatActivity() {
                 databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionStatus")
                     .setValue(chatRoom.missionStatus)
                 databaseChatRoom.child("chatRooms").child(chatRoomkey).child("messages").push()
-                    .setValue(Message(currentUser.uid!!, getDateTimeString(), "Mission Sent"))
+                    .setValue(Message(currentUser.uid!!, getDateTimeString(), "       ❓[Mission Sent]❓\n Let's Solve with your friend!"))
                     .addOnSuccessListener {
                         Log.i("putMessage", "메시지 전송에 성공하였습니다.")
                     }.addOnCanceledListener {
@@ -96,7 +96,7 @@ class MissionActivity : AppCompatActivity() {
                     databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionStatus")
                         .setValue(chatRoom.missionStatus)
                     databaseChatRoom.child("chatRooms").child(chatRoomkey).child("messages").push()
-                        .setValue(Message(currentUser.uid!!, getDateTimeString(), "Mission Solved!"))
+                        .setValue(Message(currentUser.uid!!, getDateTimeString(), "       🔥[Mission Solved!]🔥\nCongratulation! Your friend Solve Mission😎"))
                         .addOnSuccessListener {
                             Log.i("putMessage", "메시지 전송에 성공하였습니다.")
                             updateMissionCount(chatRoom)

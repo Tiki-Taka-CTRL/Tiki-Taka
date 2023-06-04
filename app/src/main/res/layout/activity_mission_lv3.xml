@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,72 +78,75 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
-            android:paddingLeft="20dp"
             android:columnCount="4">
 
             <CheckBox
                 android:id="@+id/checkbox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
                 />
+
             <EditText
                 android:id="@+id/edt_ans1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColorHint="#8E8E8E"
+                android:layout_row="0"
+                android:layout_column="1"
                 android:fontFamily="@font/notosans_medium"
-                android:text="Edit Answer1 "
-                android:textSize="17sp"
+                android:hint="Edit Answer1"
                 android:textColor="@color/black"
-                />
+                android:textColorHint="@color/dark_gray"
+                android:textSize="17sp" />
 
             <CheckBox
                 android:id="@+id/checkbox2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
                  />
             <EditText
                 android:id="@+id/edt_ans2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColorHint="#8E8E8E"
+                android:textColorHint="@color/dark_gray"
                 android:fontFamily="@font/notosans_medium"
-                android:text="Edit Answer2 "
-                android:textSize="17sp"
+                android:hint="Edit Answer2"
                 android:textColor="@color/black"
+                android:textSize="17sp"
                 />
 
             <CheckBox
-
                 android:id="@+id/checkbox3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
                  />
             <EditText
                 android:id="@+id/edt_ans3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColorHint="#8E8E8E"
+                android:textColorHint="@color/dark_gray"
                 android:fontFamily="@font/notosans_medium"
-                android:text="Edit Answer3 "
-                android:textSize="17sp"
+                android:hint="Edit Answer3"
                 android:textColor="@color/black"
+                android:textSize="17sp"
                 />
 
             <CheckBox
                 android:id="@+id/checkbox4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                 />
+                android:buttonTint="@color/black" />
             <EditText
                 android:id="@+id/edt_ans4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColorHint="#8E8E8E"
+                android:textColorHint="@color/dark_gray"
                 android:fontFamily="@font/notosans_medium"
-                android:text="Edit Answer4 "
-                android:textSize="17sp"
+                android:hint="Edit Answer4"
                 android:textColor="@color/black"
+                android:textSize="17sp"
                 />
 
         </GridLayout>
@@ -152,7 +156,7 @@
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginTop="280dp"
+            android:layout_marginTop="100dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_gravity="center"
