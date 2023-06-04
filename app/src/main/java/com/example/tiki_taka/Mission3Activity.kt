@@ -143,7 +143,7 @@ class Mission3Activity : AppCompatActivity() {
 
     private fun updateMissionCount(chatRoom: ChatRoom) {
         chatRoom.missionCount++
-        databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionCount").push()
+        databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionCount")
             .setValue(chatRoom.missionCount)
             .addOnSuccessListener {
                 Log.i("updateMissionCount", "missionCOunt증가")
