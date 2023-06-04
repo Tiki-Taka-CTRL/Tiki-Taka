@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.tiki_taka.databinding.FragmentMyplaceBinding
 import com.google.android.play.integrity.internal.t
 import com.google.firebase.auth.FirebaseAuth

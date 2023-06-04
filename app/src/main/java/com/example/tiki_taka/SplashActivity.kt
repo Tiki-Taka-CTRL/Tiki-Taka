@@ -1,13 +1,13 @@
 package com.example.tiki_taka
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import model.MissionLv1
+import androidx.appcompat.app.AppCompatActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

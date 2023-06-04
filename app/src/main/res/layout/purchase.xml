@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/editText"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:text="Would you like to purchase this item?"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/image"
+        android:background="@drawable/avatar8"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        android:layout_width="100dp"
+        android:layout_height="100dp"></ImageView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="30dp">
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="ⓒ100TC"
+        android:textAlignment="center"
+        android:textColor="#737373"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/con1"
+    android:layout_width="match_parent"
+    app:layout_constraintTop_toBottomOf="@+id/price"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/closeButton"
+        android:background="@drawable/cash_line"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="NO"
+        android:layout_marginLeft="50dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/purchaseButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/black"
+        android:background="@drawable/save_btn"
+        android:text="YES"
+        android:layout_marginRight="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+<TextView
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/con1"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+</TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>
