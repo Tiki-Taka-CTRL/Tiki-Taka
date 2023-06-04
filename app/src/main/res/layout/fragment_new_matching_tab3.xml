@@ -1,20 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#CD5C5C">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_tab3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="tab3"
-        android:textSize="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup_tab3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:singleLine="false">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip1_tab3"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Korean" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip2_tab3"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dutch" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip3_tab3"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="American" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip4_tab3"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="British" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip5_tab3"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Japanese" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip6_tab3"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chinese" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+</LinearLayout>

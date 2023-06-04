@@ -51,7 +51,7 @@ class NewMatchingActivity : AppCompatActivity() {
         tabLayout = binding.tabNewMatching
 
         // Create a list of fragment titles
-        val tabTitles = listOf("Hobby", "Music", "Country", "Major")
+        val tabTitles = listOf("hobby", "character", "country", "major")
 
         // Create a list of fragments for the ViewPager2
         val fragments = listOf(
