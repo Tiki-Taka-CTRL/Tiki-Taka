@@ -106,7 +106,9 @@ class Mission3Activity : AppCompatActivity() {
                         Log.i("putMessage", "메시지 전송에 실패하였습니다")
                     }
             } else if (chatRoom.missionStatus == 2) { //미션 풀기
-                if ((firstquestionanswer == chatRoom.missionLv1?.check_ans) && (answer == chatRoom.missionLv2?.ans_num)) {
+                Log.d("test1234",missionLv1.check_ans.toString())
+                Log.d("test1234",missionLv2.ans_num.toString())
+                if ((firstquestionanswer == missionLv1.check_ans) && (answer == missionLv2.ans_num)) {
                     databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionStatus")
                         .setValue(chatRoom.missionStatus)
                     databaseChatRoom.child("chatRooms").child(chatRoomkey).child("messages").push()
