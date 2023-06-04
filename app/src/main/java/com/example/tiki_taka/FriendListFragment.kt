@@ -1,5 +1,6 @@
 package com.example.tiki_taka
 
+import FriendListFragmentAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +16,15 @@ import com.example.tiki_taka.databinding.FragmentFriendLevel1Binding
 import com.example.tiki_taka.databinding.FragmentFriendLevel2Binding
 import com.example.tiki_taka.databinding.FragmentFriendLevel3Binding
 import com.example.tiki_taka.databinding.FragmentFriendListBinding
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class FriendListFragment : Fragment() {
     private lateinit var binding: FragmentFriendListBinding
+
+    //TabLayout 구현에 필요한 부분
+    private lateinit var viewPager: ViewPager2
+    private lateinit var tabLayout: TabLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,29 +32,51 @@ class FriendListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentFriendListBinding.inflate(layoutInflater)
+
+        viewPager = binding.viewFriendList
+        tabLayout = binding.tabFriendList
+
+        // Create a list of fragment titles
+        val tabTitles = listOf("Level 1", "Level 2", "Level 3")
+
+        // Create a list of fragments for the ViewPager2
+        val fragments = listOf(
+            FriendListTab1Fragment(),
+            FriendListTab2Fragment(),
+            FriendListTab3Fragment()
+        )
+
+        // Set up the ViewPager2 with the fragments
+        viewPager.adapter = FriendListFragmentAdapter(this, fragments)
+
+        // Connect the TabLayout with the ViewPager2
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = tabTitles[position]
+        }.attach()
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tabLayout = binding.tabFriendList
-        val viewPager: ViewPager2 = binding.viewFriendList
-        val adapter = FriendListPagerAdapter(requireActivity())
-
-        viewPager.adapter = adapter
-
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            when (position) {
-                0 -> tab.text = "Level 1"
-                1 -> tab.text = "Level 2"
-                2 -> tab.text = "Level 3"
-            }
-        }.attach()
+//        val tabLayout = binding.tabFriendList
+//        val viewPager: ViewPager2 = binding.viewFriendList
+//        val adapter = FriendListPagerAdapter(requireActivity())
+//
+//        viewPager.adapter = adapter
+//
+//        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+//            when (position) {
+//                0 -> tab.text = "Level 1"
+//                1 -> tab.text = "Level 2"
+//                2 -> tab.text = "Level 3"
+//            }
+//        }.attach()
     }
 }
 
-class FriendListPagerAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
+/*class FriendListPagerAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
     override fun getItemCount(): Int {
         return 3
     }
@@ -115,4 +143,4 @@ class Tab3Fragment : Fragment() {
 
         return binding.root
     }
-}
+}*/
