@@ -58,7 +58,7 @@ class NewMatchingDialogFragment : DialogFragment() {
             null,
             null
         )
-        Log.d("Userid", currnentUser.uid!!)
+//        Log.d("Userid", currnentUser.uid!!)
         var myUid = FirebaseAuth.getInstance().uid//내 Uid
 //        if (myUid != null) {
 //            Log.d("userid..addChatRoom",myUid)

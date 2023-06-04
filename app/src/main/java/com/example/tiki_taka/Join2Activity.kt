@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import java.util.Random
 
 class Join2Activity : AppCompatActivity() {
     lateinit var binding: ActivityJoin2Binding
@@ -49,7 +48,7 @@ class Join2Activity : AppCompatActivity() {
                 val country = intent.getStringExtra("country")
                 val city = intent.getStringExtra("city")
                 val img = getRandomAvatar()
-                val input_user : model.User = model.User(userIdSt, nickname, email, country, city, img)
+                val input_user : model.User = model.User(userIdSt, nickname, email, country, city, img, 1000)
                 database.child("users")
                     .child(userId.toString()).setValue(input_user) { databaseError, _ ->
                         if (databaseError != null) {
@@ -83,8 +82,8 @@ class Join2Activity : AppCompatActivity() {
             5 -> return R.drawable.avatar6
             6 -> return R.drawable.avatar7
             7 -> return R.drawable.avatar8
-            8 -> return R.drawable.avatar9
-            9 -> return R.drawable.avatar10
+            8 -> return R.drawable.avatar6
+            9 -> return R.drawable.avatar5
             else -> return R.drawable.avatar1
         }
     }
