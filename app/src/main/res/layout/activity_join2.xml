@@ -68,10 +68,11 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/nick_check"
                     android:fontFamily="@font/notosans_regular"
-                    android:textAllCaps="false"
                     android:text="Change"
+                    android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="13sp"
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
             <ImageView
@@ -103,16 +104,21 @@
                     android:id="@+id/btn_add"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@drawable/btn_add" />
+                    android:background="@drawable/btn_add"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
             </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/keyword_ex"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_width="106dp"
-                android:layout_height="34dp"
-                android:background="@drawable/keyword_ex" />
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 
@@ -128,15 +134,16 @@
             android:id="@+id/btn_done"
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_gravity="center"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
             android:layout_marginBottom="25dp"
-            android:layout_gravity="center"
             android:background="@drawable/btn_check"
             android:fontFamily="@font/notosans_regular"
             android:text="Done"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 </LinearLayout>
