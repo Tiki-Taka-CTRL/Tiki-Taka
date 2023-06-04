@@ -48,7 +48,7 @@ class Join2Activity : AppCompatActivity() {
                 val country = intent.getStringExtra("country")
                 val city = intent.getStringExtra("city")
                 val img = getRandomAvatar()
-                val input_user : model.User = model.User(userIdSt, nickname, email, country, city, img)
+                val input_user : model.User = model.User(userIdSt, nickname, email, country, city, img, 1000)
                 database.child("users")
                     .child(userId.toString()).setValue(input_user) { databaseError, _ ->
                         if (databaseError != null) {

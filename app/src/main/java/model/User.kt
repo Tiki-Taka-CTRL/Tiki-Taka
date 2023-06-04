@@ -9,4 +9,5 @@ data class User(
     val country: String? = "",
     val city: String? = "",
     var img: Int = 0,
+    var coin: Int = 1000,
 ) : Serializable

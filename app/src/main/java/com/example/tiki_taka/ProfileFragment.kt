@@ -105,6 +105,7 @@ class ProfileFragment : Fragment() {
                 val user = FirebaseAuth.getInstance().currentUser!!           //현재 로그인한 유저 id
                 val users = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("User")
                 users.child("users").child(user.uid).child("img").setValue(sel_avatar)
+                users.child("users").child(user.uid).child("coin").setValue(coin)
             }
 
             val noButton = mDialogView.findViewById<Button>(R.id.closeButton)
@@ -126,6 +127,8 @@ class ProfileFragment : Fragment() {
                         val cur_user = t.getValue<User>()!!
                         binding.avatar.setImageResource(cur_user.img)
                         setUserAvatarPrice(cur_user.img)
+                        coin = cur_user.coin
+                        binding.coin.text = coin.toString() + "TC"
                     }
                 }
             }
