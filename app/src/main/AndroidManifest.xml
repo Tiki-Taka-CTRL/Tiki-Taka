@@ -23,6 +23,8 @@
         <activity
             android:name=".JoinActivity"
             android:exported="true" />
+        <activity android:name=".Mission3Activity"
+            android:exported="true"/>
         <activity
             android:name=".ChatRoomActivity"
             android:exported="true" />

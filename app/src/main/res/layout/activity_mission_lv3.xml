@@ -33,15 +33,18 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:paddingLeft="15dp"
-            android:text="Match your friend's taste!"
+            android:text="Make your Own Question"
             android:textSize="16sp"/>
 
-        <TextView
+        <EditText
+            android:id="@+id/edt_question1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="#8E8E8E"
+            android:fontFamily="@font/notosans_medium"
             android:paddingTop="5dp"
             android:paddingLeft="17dp"
-            android:text="1. Your Friend's Question 1"
+            android:text="1. Type your Question"
             android:textSize="17sp"
             android:textColor="@color/black"/>
 
@@ -57,12 +60,15 @@
             android:paddingLeft="150dp"
             android:paddingRight="150dp" />
 
-        <TextView
+        <EditText
+            android:id="@+id/edt_question2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="25dp"
             android:paddingLeft="17dp"
-            android:text="2. Your Friend's Question 2"
+            android:textColorHint="#8E8E8E"
+            android:fontFamily="@font/notosans_medium"
+            android:text="2. Type your Question"
             android:textSize="17sp"
             android:textColor="@color/black"/>
 
@@ -71,33 +77,73 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
-            android:paddingLeft="80dp"
-            android:columnCount="2">
+            android:paddingLeft="20dp"
+            android:columnCount="4">
 
             <CheckBox
                 android:id="@+id/checkbox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="45dp"
-                android:text="num1" />
+                />
+            <EditText
+                android:id="@+id/edt_ans1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="#8E8E8E"
+                android:fontFamily="@font/notosans_medium"
+                android:text="Edit Answer1 "
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                />
 
             <CheckBox
                 android:id="@+id/checkbox2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="num2" />
+                 />
+            <EditText
+                android:id="@+id/edt_ans2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="#8E8E8E"
+                android:fontFamily="@font/notosans_medium"
+                android:text="Edit Answer2 "
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                />
 
             <CheckBox
+
                 android:id="@+id/checkbox3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="num3" />
+                 />
+            <EditText
+                android:id="@+id/edt_ans3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="#8E8E8E"
+                android:fontFamily="@font/notosans_medium"
+                android:text="Edit Answer3 "
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                />
 
             <CheckBox
                 android:id="@+id/checkbox4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="num4" />
+                 />
+            <EditText
+                android:id="@+id/edt_ans4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="#8E8E8E"
+                android:fontFamily="@font/notosans_medium"
+                android:text="Edit Answer4 "
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                />
 
         </GridLayout>
 
