@@ -93,12 +93,21 @@ class MissionActivity : AppCompatActivity() {
                     }
             } else if (chatRoom.missionStatus == 2) { //미션 풀기
                 if ((mission1_ans == missionLv1.check_ans) && (mission2_ans == missionLv2.ans_num)) {
-                    Log.i("putMessage", "메시지 전송에 성공하였습니다.")
+                    databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionStatus")
+                        .setValue(chatRoom.missionStatus)
+                    databaseChatRoom.child("chatRooms").child(chatRoomkey).child("messages").push()
+                        .setValue(Message(currentUser.uid!!, getDateTimeString(), "Mission Solved!"))
+                        .addOnSuccessListener {
+                            Log.i("putMessage", "메시지 전송에 성공하였습니다.")
+                        }.addOnCanceledListener {
+                            Log.i("putMessage", "메시지 전송에 실패하였습니다")
+                        }
                 } else {
-                    Log.i("putMessage", "메시지 전송에 실패하였습니다")
+                    Toast.makeText(this@MissionActivity, "MissionFailed", Toast.LENGTH_LONG)
+                        .show()
                 }
             } else {
-                Toast.makeText(this@MissionActivity, "No more Chance..", Toast.LENGTH_SHORT)
+                Toast.makeText(this@MissionActivity, "No more Chance..", Toast.LENGTH_LONG)
                     .show()
             }
             var intent = Intent(this@MissionActivity, ChatRoomActivity::class.java)
