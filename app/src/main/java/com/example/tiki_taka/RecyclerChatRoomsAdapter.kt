@@ -43,8 +43,11 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
                 override fun onCancelled(error: DatabaseError) {}
                 override fun onDataChange(snapshot: DataSnapshot) {
                     chatRooms.clear()
+                    Log.d("checkSnap",snapshot.toString())
                     for (data in snapshot.children) {
+                        Log.d("checkSnap",data.toString())
                         val item = data.getValue<ChatRoom>()!!
+                        Log.d("checkSnap",item.toString())
                         //if (!(item?..equals(myUid))) {
                         if(item?.users?.contains(myUid) == true){
                             currentChatRoom = item!!
