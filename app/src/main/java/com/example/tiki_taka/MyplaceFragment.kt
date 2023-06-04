@@ -39,7 +39,9 @@ class MyplaceFragment : Fragment() {
                 var target: String
                 for (t in temp.children) {
                     if (user.uid == t.child("uid").value) {
-                        binding.rachel.text = t.getValue<User>()!!.nickname
+                        val cur_user = t.getValue<User>()!!
+                        binding.rachel.text = cur_user.nickname
+                        binding.imageViewProfile.setImageResource(cur_user.img)
                     }
                 }
             }

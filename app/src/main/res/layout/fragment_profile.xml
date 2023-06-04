@@ -110,17 +110,19 @@
                 </TableRow>
                 <TableRow>
                     <TextView
+                        android:id="@+id/price1"
                         app:layout_constraintTop_toBottomOf="@+id/avatar1"
                         app:layout_constraintStart_toEndOf="parent"
                         android:layout_marginRight="10dp"
                         android:layout_width="80dp"
                         android:textAlignment="center"
-                        android:text="∨"
+                        android:text="ⓒ100TC"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/black"
                         android:layout_height="30dp">
                     </TextView>
                     <TextView
+                        android:id="@+id/price2"
                         app:layout_constraintTop_toBottomOf="@+id/avatar1"
                         app:layout_constraintStart_toEndOf="parent"
                         android:layout_marginRight="10dp"
@@ -132,6 +134,7 @@
                         android:layout_height="30dp">
                     </TextView>
                     <TextView
+                        android:id="@+id/price3"
                         app:layout_constraintTop_toBottomOf="@+id/avatar1"
                         app:layout_constraintStart_toEndOf="parent"
                         android:layout_marginRight="10dp"
@@ -144,6 +147,7 @@
                         android:layout_height="30dp">
                     </TextView>
                     <TextView
+                        android:id="@+id/price4"
                         app:layout_constraintTop_toBottomOf="@+id/avatar1"
                         app:layout_constraintStart_toEndOf="parent"
                         android:layout_width="80dp"
@@ -160,7 +164,7 @@
                         android:layout_marginRight="10dp"
                         app:layout_constraintTop_toBottomOf="@+id/avatar1"
                         app:layout_constraintStart_toEndOf="@+id/avatar5"
-                        android:background="@drawable/avatar10"
+                        android:background="@drawable/avatar5"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
                     <ImageView
@@ -168,7 +172,7 @@
                         android:layout_marginRight="10dp"
                         app:layout_constraintTop_toBottomOf="@+id/avatar1"
                         app:layout_constraintStart_toEndOf="@+id/avatar6"
-                        android:background="@drawable/avatar9"
+                        android:background="@drawable/avatar6"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
                     <ImageView
@@ -188,6 +192,7 @@
                 </TableRow>
                 <TableRow>
                     <TextView
+                        android:id="@+id/price5"
                         app:layout_constraintTop_toBottomOf="@+id/avatar1"
                         app:layout_constraintStart_toEndOf="parent"
                         android:layout_marginRight="10dp"
@@ -199,6 +204,7 @@
                         android:layout_height="30dp">
                     </TextView>
                     <TextView
+                        android:id="@+id/price6"
                         app:layout_constraintTop_toBottomOf="@+id/avatar1"
                         app:layout_constraintStart_toEndOf="parent"
                         android:layout_marginRight="10dp"
@@ -210,6 +216,7 @@
                         android:layout_height="30dp">
                     </TextView>
                     <TextView
+                        android:id="@+id/price7"
                         app:layout_constraintTop_toBottomOf="@+id/avatar1"
                         app:layout_constraintStart_toEndOf="parent"
                         android:layout_marginRight="10dp"

@@ -38,7 +38,7 @@ class NewMatchingDialogFragment : DialogFragment() {
 
         opponent_user = bundle!!.getSerializable("opponent_user") as User
         binding.tvNewDialogName.text = opponent_user.nickname.toString()
-
+        binding.imgNewDialog.setImageResource(opponent_user.img)
         binding.btnNewDialogNo.setOnClickListener {
             dismiss()
         }
@@ -58,7 +58,7 @@ class NewMatchingDialogFragment : DialogFragment() {
             null,
             null
         )
-        Log.d("Userid", currnentUser.uid!!)
+//        Log.d("Userid", currnentUser.uid!!)
         var myUid = FirebaseAuth.getInstance().uid//내 Uid
 //        if (myUid != null) {
 //            Log.d("userid..addChatRoom",myUid)

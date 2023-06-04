@@ -85,7 +85,7 @@ class MissionActivity : AppCompatActivity() {
                 databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionStatus")
                     .setValue(chatRoom.missionStatus)
                 databaseChatRoom.child("chatRooms").child(chatRoomkey).child("messages").push()
-                    .setValue(Message(currentUser.uid!!, getDateTimeString(), "Mission Sent"))
+                    .setValue(Message(currentUser.uid!!, getDateTimeString(), "       ❓[Mission Sent]❓\n Let's Solve with your friend!"))
                     .addOnSuccessListener {
                         Log.i("putMessage", "메시지 전송에 성공하였습니다.")
                     }.addOnCanceledListener {
@@ -96,9 +96,10 @@ class MissionActivity : AppCompatActivity() {
                     databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionStatus")
                         .setValue(chatRoom.missionStatus)
                     databaseChatRoom.child("chatRooms").child(chatRoomkey).child("messages").push()
-                        .setValue(Message(currentUser.uid!!, getDateTimeString(), "Mission Solved!"))
+                        .setValue(Message(currentUser.uid!!, getDateTimeString(), "       🔥[Mission Solved!]🔥\nCongratulation! Your friend Solve Mission😎"))
                         .addOnSuccessListener {
                             Log.i("putMessage", "메시지 전송에 성공하였습니다.")
+                            updateMissionCount(chatRoom)
                         }.addOnCanceledListener {
                             Log.i("putMessage", "메시지 전송에 실패하였습니다")
                         }
@@ -117,6 +118,19 @@ class MissionActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    private fun updateMissionCount(chatRoom: ChatRoom) {
+        chatRoom.missionCount ++
+        databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionCount").push()
+            .setValue(chatRoom.missionCount)
+            .addOnSuccessListener {
+                Log.i("updateMissionCount", "missionCOunt증가")
+
+            }.addOnCanceledListener {
+                Log.i("updateMissionCount", "missionCOunt증가실패")
+            }
+    }
+
 
     override fun onStart() {
         super.onStart()
@@ -139,102 +153,23 @@ class MissionActivity : AppCompatActivity() {
         databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionStatus").get().addOnSuccessListener {
             chatRoom.missionStatus = it.getValue<Int>()!!
         }
-        if (chatRoom.missionStatus == 0) {
-            database.child("lv2").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val items = snapshot.children
-                    for (item in items) {
-                        missions_lv2.add(item.getValue<MissionLv2>()!!)
-                    }
-                    missionLv2 = getOneRandomMission(2) as MissionLv2
-                    initLayout()
-                    title_lv2.setText(missionLv2.title)
-                    checkbox1.setText(missionLv2.ans1)
-                    checkbox2.setText(missionLv2.ans2)
-                    checkbox3.setText(missionLv2.ans3)
-                    checkbox4.setText(missionLv2.ans4)
-                    checkbox1.setOnCheckedChangeListener { _, isChecked ->
-                        if (isChecked) {
-                            missionLv2.ans_num = 1
-                        }
-                    }
+        if(chatRoom.missionCount >= 5){
 
-                    checkbox2.setOnCheckedChangeListener { _, isChecked ->
-                        if (isChecked) {
-                            missionLv2.ans_num = 2
-                            Log.d("putMessage", "체크됨")
-                        }
-                    }
-
-                    checkbox3.setOnCheckedChangeListener { _, isChecked ->
-                        if (isChecked) {
-                            missionLv2.ans_num = 3
-                        }
-                    }
-
-                    checkbox4.setOnCheckedChangeListener { _, isChecked ->
-                        if (isChecked) {
-                            missionLv2.ans_num = 4
-                        }
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-            })
-
-            database.child("lv1").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val items = snapshot.children
-                    for (item in items) {
-                        missions_lv1.add(item.getValue<MissionLv1>()!!)
-                    }
-
-                    missionLv1 = getOneRandomMission(1) as MissionLv1
-                    initLayout()
-                    title_lv1.setText(missionLv1.title)
-                    switchButton.setOnCheckedChangeListener { _, isChecked ->
-                        missionLv1.check_ans = isChecked
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-            })
-        } else {
-            databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionlv1")
-                .addListenerForSingleValueEvent(object : ValueEventListener {
+        }else {
+            if (chatRoom.missionStatus == 0) {
+                database.child("lv2").addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val items = snapshot.children
                         for (item in items) {
-                            title_lv1.setText(item.getValue<MissionLv1>()!!.title)
-                            missionLv1 = item.getValue<MissionLv1>()!!
-                            mission1_ans= item.getValue<MissionLv1>()!!.check_ans == true
+                            missions_lv2.add(item.getValue<MissionLv2>()!!)
                         }
-                        switchButton.setOnCheckedChangeListener { _, isChecked ->
-                            missionLv1.check_ans = isChecked
-                        }
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
-                    }
-                })
-            databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionlv2")
-                .addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        val items = snapshot.children
-                        for (item in items) {
-                            title_lv2.setText(item.getValue<MissionLv2>()!!.title)
-                            checkbox1.setText(item.getValue<MissionLv2>()!!.ans1)
-                            checkbox2.setText(item.getValue<MissionLv2>()!!.ans2)
-                            checkbox3.setText(item.getValue<MissionLv2>()!!.ans3)
-                            checkbox4.setText(item.getValue<MissionLv2>()!!.ans4)
-                            missionLv2 = item.getValue<MissionLv2>()!!
-                            mission2_ans = item.getValue<MissionLv2>()!!.ans_num
-                        }
-
+                        missionLv2 = getOneRandomMission(2) as MissionLv2
+                        initLayout()
+                        title_lv2.setText(missionLv2.title)
+                        checkbox1.setText(missionLv2.ans1)
+                        checkbox2.setText(missionLv2.ans2)
+                        checkbox3.setText(missionLv2.ans3)
+                        checkbox4.setText(missionLv2.ans4)
                         checkbox1.setOnCheckedChangeListener { _, isChecked ->
                             if (isChecked) {
                                 missionLv2.ans_num = 1
@@ -262,8 +197,91 @@ class MissionActivity : AppCompatActivity() {
                     }
 
                     override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
                     }
                 })
+
+                database.child("lv1").addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val items = snapshot.children
+                        for (item in items) {
+                            missions_lv1.add(item.getValue<MissionLv1>()!!)
+                        }
+
+                        missionLv1 = getOneRandomMission(1) as MissionLv1
+                        initLayout()
+                        title_lv1.setText(missionLv1.title)
+                        switchButton.setOnCheckedChangeListener { _, isChecked ->
+                            missionLv1.check_ans = isChecked
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+                })
+            } else {
+                databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionlv1")
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val items = snapshot.children
+                            for (item in items) {
+                                title_lv1.setText(item.getValue<MissionLv1>()!!.title)
+                                missionLv1 = item.getValue<MissionLv1>()!!
+                                mission1_ans = item.getValue<MissionLv1>()!!.check_ans == true
+                            }
+                            switchButton.setOnCheckedChangeListener { _, isChecked ->
+                                missionLv1.check_ans = isChecked
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                        }
+                    })
+                databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionlv2")
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val items = snapshot.children
+                            for (item in items) {
+                                title_lv2.setText(item.getValue<MissionLv2>()!!.title)
+                                checkbox1.setText(item.getValue<MissionLv2>()!!.ans1)
+                                checkbox2.setText(item.getValue<MissionLv2>()!!.ans2)
+                                checkbox3.setText(item.getValue<MissionLv2>()!!.ans3)
+                                checkbox4.setText(item.getValue<MissionLv2>()!!.ans4)
+                                missionLv2 = item.getValue<MissionLv2>()!!
+                                mission2_ans = item.getValue<MissionLv2>()!!.ans_num
+                            }
+
+                            checkbox1.setOnCheckedChangeListener { _, isChecked ->
+                                if (isChecked) {
+                                    missionLv2.ans_num = 1
+                                }
+                            }
+
+                            checkbox2.setOnCheckedChangeListener { _, isChecked ->
+                                if (isChecked) {
+                                    missionLv2.ans_num = 2
+                                    Log.d("putMessage", "체크됨")
+                                }
+                            }
+
+                            checkbox3.setOnCheckedChangeListener { _, isChecked ->
+                                if (isChecked) {
+                                    missionLv2.ans_num = 3
+                                }
+                            }
+
+                            checkbox4.setOnCheckedChangeListener { _, isChecked ->
+                                if (isChecked) {
+                                    missionLv2.ans_num = 4
+                                }
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                        }
+                    })
+            }
         }
     }
 
