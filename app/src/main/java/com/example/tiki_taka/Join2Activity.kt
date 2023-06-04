@@ -7,9 +7,11 @@ import android.view.ViewGroup.LayoutParams
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tiki_taka.databinding.ActivityJoin2Binding
+import com.google.firebase.firestore.auth.User
 
 class Join2Activity : AppCompatActivity() {
     lateinit var binding: ActivityJoin2Binding
+    lateinit var user : model.User
     private val MAX_SELECTION = 5
     private val selectedButtons = HashSet<Button>()
     private val buttonBackgrounds = HashMap<Button, Int>()
@@ -23,6 +25,8 @@ class Join2Activity : AppCompatActivity() {
         binding = ActivityJoin2Binding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        user = intent.getSerializableExtra("userinfo") as model.User
+        binding.userNicknameTv.text = user.nickname
 
         createButtons() // 버튼 생성 및 추가
         init()

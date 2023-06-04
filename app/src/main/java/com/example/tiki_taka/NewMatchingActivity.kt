@@ -92,6 +92,7 @@ class NewMatchingActivity : AppCompatActivity() {
     }
 
     private fun findNewFriend() {
+        var check = 0
         Log.d("getKOUser",korUser.size.toString())
         Log.d("getNeduser",NedUser.size.toString())
         Log.d("getNeduser",WhoAmiFrendWith.toString())
@@ -117,10 +118,17 @@ class NewMatchingActivity : AppCompatActivity() {
                                 bundle.putSerializable("opponent_user", opponent_user)
                                 dialog.arguments = bundle
                                 dialog.show(supportFragmentManager, "NewMatchingDialog")
+                                check = 1
                                 break
                             }
                         }
                     }
+                }
+                if(check ==0) {
+                    Toast.makeText(this@NewMatchingActivity, "No matching", Toast.LENGTH_LONG)
+                        .show()
+                }else{
+                    check = 0
                 }
             }
             else{
@@ -140,10 +148,17 @@ class NewMatchingActivity : AppCompatActivity() {
                                 bundle.putSerializable("opponent_user", opponent_user)
                                 dialog.arguments = bundle
                                 dialog.show(supportFragmentManager, "NewMatchingDialog")
+                                check =1
                                 break
                             }
                         }
                     }
+                }
+                if(check ==0) {
+                    Toast.makeText(this@NewMatchingActivity, "No matching", Toast.LENGTH_LONG)
+                        .show()
+                }else{
+                    check = 0
                 }
             }
         }
@@ -163,9 +178,16 @@ class NewMatchingActivity : AppCompatActivity() {
                         bundle.putSerializable("opponent_user", opponent_user)
                         dialog.arguments = bundle
                         dialog.show(supportFragmentManager, "NewMatchingDialog")
+                        check =1
                         break
                     }
                 }
+            }
+            if(check ==0) {
+                Toast.makeText(this@NewMatchingActivity, "No matching", Toast.LENGTH_LONG)
+                    .show()
+            }else{
+                check = 0
             }
         }
 
