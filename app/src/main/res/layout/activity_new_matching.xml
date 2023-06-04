@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -16,10 +17,8 @@
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/line_newMatching"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        />
 
     <View
         android:id="@+id/line_newMatching"
@@ -29,10 +28,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/tv_newMatching_explain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_newMatching_title" />
+        />
 
     <TextView
         android:id="@+id/tv_newMatching_explain"
@@ -42,9 +38,7 @@
         android:text="Set conditions for the new friend you want."
         android:textColor="@color/black"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@id/tv_newMatching_num1_1"
-        app:layout_constraintStart_toStartOf="@id/line_newMatching"
-        app:layout_constraintTop_toBottomOf="@id/line_newMatching" />
+        android:layout_marginStart="20dp" />
 
     <TextView
         android:id="@+id/tv_newMatching_num1_1"
@@ -54,22 +48,19 @@
         android:text="1. Friend's location"
         android:textColor="@color/black"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@id/tv_newMatching_num1_2"
-        app:layout_constraintStart_toStartOf="@id/tv_newMatching_explain"
-        app:layout_constraintTop_toBottomOf="@id/tv_newMatching_explain" />
+        android:layout_marginStart="20dp" />
 
     <TextView
         android:id="@+id/tv_newMatching_num1_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="35dp"
         android:layout_marginBottom="5dp"
         android:text="(Friend who live in the same district are matched.)"
         android:textColor="@color/black"
         android:textSize="14dp"
-        app:layout_constraintBottom_toTopOf="@id/switch_newMatching"
-        app:layout_constraintStart_toStartOf="@id/tv_newMatching_explain"
-        app:layout_constraintTop_toBottomOf="@id/tv_newMatching_num1_1" />
+
+        />
 
     <Switch
         android:id="@+id/switch_newMatching"
@@ -77,10 +68,8 @@
         android:layout_height="wrap_content"
         android:track="@drawable/switch_track_selector"
         android:thumb="@drawable/switch_thumb_selector"
-        app:layout_constraintBottom_toTopOf="@id/tv_newMatching_num2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_newMatching_num1_2" />
+        android:layout_gravity="center"
+         />
 
     <TextView
         android:id="@+id/tv_newMatching_num2"
@@ -90,9 +79,7 @@
         android:text="2. Friend's interests"
         android:textColor="@color/black"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@id/tab_newMatching"
-        app:layout_constraintStart_toStartOf="@id/tv_newMatching_explain"
-        app:layout_constraintTop_toBottomOf="@id/switch_newMatching" />
+        android:layout_marginStart="20dp" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_newMatching"
@@ -100,10 +87,6 @@
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        app:layout_constraintBottom_toTopOf="@id/view_newMatching"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_newMatching_num2"
         app:tabSelectedTextColor="@color/teal_700"
         app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
         app:tabTextColor="@color/dark_gray" />
@@ -111,13 +94,11 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_newMatching"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="230dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        app:layout_constraintBottom_toTopOf="@id/btn_newMatching_submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tab_newMatching" />
+        android:layout_marginBottom="10dp"
+         />
 
     <Button
         android:id="@+id/btn_newMatching_submit"
@@ -134,4 +115,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_newMatching" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
