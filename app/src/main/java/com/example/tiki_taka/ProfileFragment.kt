@@ -102,6 +102,9 @@ class ProfileFragment : Fragment() {
                 sel_price!!.text = "∨"
                 coin -= 100
                 binding.coin.text = coin.toString() + "TC"
+                val user = FirebaseAuth.getInstance().currentUser!!           //현재 로그인한 유저 id
+                val users = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("User")
+                users.child("users").child(user.uid).child("img").setValue(sel_avatar)
             }
 
             val noButton = mDialogView.findViewById<Button>(R.id.closeButton)
