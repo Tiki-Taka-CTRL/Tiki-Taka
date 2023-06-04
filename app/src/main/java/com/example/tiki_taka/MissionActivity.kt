@@ -136,6 +136,9 @@ class MissionActivity : AppCompatActivity() {
     }
 
     private fun setupMission() {
+        databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionStatus").get().addOnSuccessListener {
+            chatRoom.missionStatus = it.getValue<Int>()!!
+        }
         if (chatRoom.missionStatus == 0) {
             database.child("lv2").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
