@@ -91,6 +91,8 @@ class ChatRoomActivity : AppCompatActivity() {
             val intent = Intent(this@ChatRoomActivity, MissionActivity::class.java)
             intent.putExtra("opponent", opponentUser)
             intent.putExtra("cur_user", cur_user)
+            intent.putExtra("chatRoom",chatRoom)
+            intent.putExtra("ChatRoomkey",chatRoomKey)
             startActivity(intent)
         }
     }

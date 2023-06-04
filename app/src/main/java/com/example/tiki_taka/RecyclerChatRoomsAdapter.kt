@@ -44,7 +44,7 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
                 override fun onDataChange(snapshot: DataSnapshot) {
                     chatRooms.clear()
                     for (data in snapshot.children) {
-                        val item = data.getValue<ChatRoom>()
+                        val item = data.getValue<ChatRoom>()!!
                         //if (!(item?..equals(myUid))) {
                         if(item?.users?.contains(myUid) == true){
                             currentChatRoom = item!!

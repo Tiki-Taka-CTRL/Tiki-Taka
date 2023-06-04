@@ -8,9 +8,9 @@ data class MissionLv2(
     val ans2: String = "",
     val ans3: String = "",
     val ans4: String = "",
-    val ans_num: Int = -1,
+    var ans_num: Int = -1,
     override val title: String,
 
-) : Serializable, Mission{
+    ) : Serializable, Mission{
     constructor():this(0, "", "", "", "", 0, "")
 }

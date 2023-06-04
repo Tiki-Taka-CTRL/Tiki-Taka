@@ -94,6 +94,8 @@ class RecyclerUsersAdapter(val context: Context) :
         val database2: DatabaseReference = Firebase.database("https://example-d2e1f-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("ChatRoom") //넣을 database reference 세팅
         var chatRoom = ChatRoom(         //추가할 채팅방 정보 세팅
             mapOf(currnentUser.uid!!to opponent.uid!!, opponent.uid!!to currnentUser.uid!!),
+            null,
+            null,
             null
         )
         Log.d("Userid", currnentUser.uid!!)
