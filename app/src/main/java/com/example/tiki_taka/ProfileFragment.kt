@@ -21,6 +21,16 @@ class ProfileFragment : Fragment() {
     }
     fun init() {
         binding.avatar1.setOnClickListener{
+        //    binding.avatar.setImageResource(R.drawable.avatar1)
+        }
+        binding.avatar2.setOnClickListener{
+        //    binding.avatar.setImageResource(R.drawable.avatar2)
+        }
+        binding.avatar3.setOnClickListener{
+         //   binding.avatar.setImageResource(R.drawable.avatar1)
+        }
+        binding.avatar4.setOnClickListener{
+        //    binding.avatar.setImageResource(R.drawable.avatar2)
         }
 
     }

@@ -15,7 +15,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="100dp"
-        android:layout_height="50dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/cash_line"
+        android:layout_height="40dp">
     <TextView
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,14 +33,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="100dp"
-            android:layout_height="50dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/save_btn"
+            android:layout_height="40dp">
             <TextView
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:text="SAVE"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -47,9 +53,10 @@
         app:layout_constraintTop_toBottomOf="@+id/money"
         android:src="@drawable/avatar1"
         android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+        android:layout_height="200dp"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/row1"
+            android:background="#f5f5f5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/avatar"
@@ -57,20 +64,15 @@
             android:layout_height="wrap_content">
 
                 <TableLayout
-                    android:id="@+id/tableLayout"
+                    android:paddingTop="10dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/tableLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-                    <RadioGroup
-                        android:orientation="horizontal"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
                     <TableRow>
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/avatar1"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
@@ -78,7 +80,8 @@
                             android:background="@drawable/avatar1"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
-            <RadioButton
+
+            <CheckBox
                 android:id="@+id/avatar2"
                 android:layout_marginRight="10dp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -86,7 +89,8 @@
                 android:background="@drawable/avatar2"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
-            <RadioButton
+                        
+            <CheckBox
                 android:id="@+id/avatar3"
                 android:layout_marginRight="10dp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -94,7 +98,7 @@
                 android:background="@drawable/avatar3"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
-            <RadioButton
+            <CheckBox
                 android:id="@+id/avatar4"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/avatar3"
@@ -103,7 +107,53 @@
                 android:layout_height="80dp"/>
                 </TableRow>
                     <TableRow>
-                <RadioButton
+                        <TextView
+                            app:layout_constraintTop_toBottomOf="@+id/avatar1"
+                            app:layout_constraintStart_toEndOf="parent"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="80dp"
+                            android:textAlignment="center"
+                            android:text="∨"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/black"
+                            android:layout_height="30dp">
+                        </TextView>
+                        <TextView
+                            app:layout_constraintTop_toBottomOf="@+id/avatar1"
+                            app:layout_constraintStart_toEndOf="parent"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="80dp"
+                            android:textAlignment="center"
+                            android:text="ⓒ100TC"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#737373"
+                            android:layout_height="30dp">
+                        </TextView>
+                        <TextView
+                            app:layout_constraintTop_toBottomOf="@+id/avatar1"
+                            app:layout_constraintStart_toEndOf="parent"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="80dp"
+                            android:textAlignment="center"
+                            android:text="ⓒ100TC"
+                            android:layout_marginTop="5dp"
+
+                            android:textColor="#737373"
+                            android:layout_height="30dp">
+                        </TextView>
+                        <TextView
+                            app:layout_constraintTop_toBottomOf="@+id/avatar1"
+                            app:layout_constraintStart_toEndOf="parent"
+                            android:layout_width="80dp"
+                            android:textAlignment="center"
+                            android:text="ⓒ100TC"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#737373"
+                            android:layout_height="30dp">
+                        </TextView>
+                    </TableRow>
+                    <TableRow>
+                <CheckBox
                 android:id="@+id/avatar6"
                     android:layout_marginRight="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/avatar1"
@@ -111,7 +161,7 @@
                 android:background="@drawable/avatar10"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
-            <RadioButton
+            <CheckBox
                 android:id="@+id/avatar7"
                 android:layout_marginRight="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/avatar1"
@@ -119,7 +169,7 @@
                 android:background="@drawable/avatar9"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
-            <RadioButton
+            <CheckBox
                 android:id="@+id/avatar8"
                 android:layout_marginRight="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/avatar1"
@@ -128,15 +178,60 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/avatar5"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="@drawable/avatar5"/>
                 </TableRow>
+                    <TableRow>
+                        <TextView
+                            app:layout_constraintTop_toBottomOf="@+id/avatar1"
+                            app:layout_constraintStart_toEndOf="parent"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="80dp"
+                            android:textAlignment="center"
+                            android:text="ⓒ100TC"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/black"
+                            android:layout_height="30dp">
+                        </TextView>
+                        <TextView
+                            app:layout_constraintTop_toBottomOf="@+id/avatar1"
+                            app:layout_constraintStart_toEndOf="parent"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="80dp"
+                            android:textAlignment="center"
+                            android:text="ⓒ100TC"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#737373"
+                            android:layout_height="30dp">
+                        </TextView>
+                        <TextView
+                            app:layout_constraintTop_toBottomOf="@+id/avatar1"
+                            app:layout_constraintStart_toEndOf="parent"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="80dp"
+                            android:textAlignment="center"
+                            android:text="ⓒ100TC"
+                            android:layout_marginTop="5dp"
 
-            </RadioGroup>
+                            android:textColor="#737373"
+                            android:layout_height="30dp">
+                        </TextView>
+                        <TextView
+                            app:layout_constraintTop_toBottomOf="@+id/avatar1"
+                            app:layout_constraintStart_toEndOf="parent"
+                            android:layout_width="80dp"
+                            android:textAlignment="center"
+                            android:text="ⓒ100TC"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#737373"
+                            android:layout_height="30dp">
+                        </TextView>
+                    </TableRow>
                 </TableLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
