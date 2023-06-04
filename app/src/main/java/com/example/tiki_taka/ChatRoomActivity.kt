@@ -88,12 +88,21 @@ class ChatRoomActivity : AppCompatActivity() {
         }
 
         binding.missionBtn.setOnClickListener {
-            val intent = Intent(this@ChatRoomActivity, MissionActivity::class.java)
-            intent.putExtra("opponent", opponentUser)
-            intent.putExtra("cur_user", cur_user)
-            intent.putExtra("chatRoom",chatRoom)
-            intent.putExtra("ChatRoomkey",chatRoomKey)
-            startActivity(intent)
+            if(chatRoom.missionCount<5) {
+                val intent = Intent(this@ChatRoomActivity, MissionActivity::class.java)
+                intent.putExtra("opponent", opponentUser)
+                intent.putExtra("cur_user", cur_user)
+                intent.putExtra("chatRoom", chatRoom)
+                intent.putExtra("ChatRoomkey", chatRoomKey)
+                startActivity(intent)
+            }else{
+                val intent = Intent(this@ChatRoomActivity, Mission3Activity::class.java)
+                intent.putExtra("opponent", opponentUser)
+                intent.putExtra("cur_user", cur_user)
+                intent.putExtra("chatRoom", chatRoom)
+                intent.putExtra("ChatRoomkey", chatRoomKey)
+                startActivity(intent)
+            }
         }
     }
 
