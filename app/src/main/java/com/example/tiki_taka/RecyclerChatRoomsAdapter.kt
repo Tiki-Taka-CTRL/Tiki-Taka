@@ -43,11 +43,11 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
                 override fun onCancelled(error: DatabaseError) {}
                 override fun onDataChange(snapshot: DataSnapshot) {
                     chatRooms.clear()
-                    Log.d("checkSnap",snapshot.toString())
+//                    Log.d("checkSnap",snapshot.toString())
                     for (data in snapshot.children) {
-                        Log.d("checkSnap",data.toString())
+//                        Log.d("checkSnap",data.toString())
                         val item = data.getValue<ChatRoom>()!!
-                        Log.d("checkSnap",item.toString())
+//                        Log.d("checkSnap",item.toString())
                         //if (!(item?..equals(myUid))) {
                         if(item?.users?.contains(myUid) == true){
                             currentChatRoom = item!!
@@ -65,6 +65,7 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
         val view = LayoutInflater.from(context).inflate(R.layout.item_chatting, parent, false)
         return ViewHolder(ItemChattingBinding.bind(view))
     }
+
     override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
         var userIdList = chatRooms[position].users!!.keys    //채팅방에 포함된 사용자 키 목록
         var opponent = userIdList.first { it != myUid }  //상대방 사용자 키
@@ -79,7 +80,7 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {}
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    Log.d("test", snapshot.toString())
+//                    Log.d("test", snapshot.toString())
                     for (data in snapshot.children) {
                         holder.chatRoomKey = data.key.toString()!!             //채팅방 키 초기화
                         val opponentUser = data.getValue<User>()!!
@@ -87,8 +88,10 @@ class RecyclerChatRoomsAdapter(val context : Context):RecyclerView.Adapter<Recyc
                         holder.txt_name.text = opponentUser.nickname.toString()     //상대방 이름 초괴화
                         holder.user_img.setImageResource(opponentUser.img)
                         if (chatRooms[position].messages!!.isNotEmpty()) {         //채팅방 메시지가 존재하는 경우
+                            setupAllUserList()
                             setupLastMessageAndDate(holder, position)        //마지막 메시지 및 시각 초기화
                             setupMessageCount(holder, position)
+
                         }
                         //Log.d("test", holder.txt_name.text as String)
                     }

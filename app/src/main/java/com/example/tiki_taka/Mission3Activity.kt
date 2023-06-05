@@ -72,8 +72,8 @@ class Mission3Activity : AppCompatActivity() {
             chatRoom.missionStatus++
             Log.d("missionstatus", chatRoom.missionStatus.toString())
             if (chatRoom.missionStatus == 1) { //미션 전송
-                chatRoom.missionLv1 = MissionLv1(1, firstquestionanswer, title_lv1.text.toString())
-                chatRoom.missionLv2 = MissionLv2(
+                chatRoom.missionlv1 = MissionLv1(1, firstquestionanswer, title_lv1.text.toString())
+                chatRoom.missionlv2 = MissionLv2(
                     2,
                     checkbox1ans.text.toString(),
                     checkbox2ans.text.toString(),
@@ -84,14 +84,14 @@ class Mission3Activity : AppCompatActivity() {
                 )
                 databaseChatRoom.child("chatRooms").child(chatRoomkey)
                     .child("missionlv3").child("missionlv1")                //현재 채팅방에 메시지 추가
-                    .push().setValue(chatRoom.missionLv1).addOnSuccessListener {
+                    .push().setValue(chatRoom.missionlv1).addOnSuccessListener {
 
                     }.addOnCanceledListener {
 
                     }
                 databaseChatRoom.child("chatRooms").child(chatRoomkey)
                     .child("missionlv3").child("missionlv2")                //현재 채팅방에 메시지 추가
-                    .push().setValue(chatRoom.missionLv2).addOnSuccessListener {
+                    .push().setValue(chatRoom.missionlv2).addOnSuccessListener {
 
                     }.addOnCanceledListener {
 

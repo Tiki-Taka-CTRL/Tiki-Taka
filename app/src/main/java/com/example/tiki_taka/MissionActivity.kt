@@ -66,8 +66,8 @@ class MissionActivity : AppCompatActivity() {
             chatRoom.missionStatus++
             Log.d("missionstatus", chatRoom.missionStatus.toString())
             if (chatRoom.missionStatus == 1) { //미션 전송
-                chatRoom.missionLv1 = missionLv1
-                chatRoom.missionLv2 = missionLv2
+                chatRoom.missionlv1 = missionLv1
+                chatRoom.missionlv2 = missionLv2
                 databaseChatRoom.child("chatRooms").child(chatRoomkey)
                     .child("missionlv1")                //현재 채팅방에 메시지 추가
                     .push().setValue(missionLv1).addOnSuccessListener {
