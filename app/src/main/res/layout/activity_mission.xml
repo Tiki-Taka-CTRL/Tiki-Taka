@@ -36,7 +36,7 @@
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:fontFamily="@font/notosans_bold"
-        android:text="Match your friend's taste!"
+        android:text="Check your Answer!"
         android:textColor="@color/dark_gray"
         android:textSize="18sp"
         android:textAlignment="center"

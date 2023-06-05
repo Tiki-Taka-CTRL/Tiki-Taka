@@ -168,7 +168,7 @@ class ChatRoomActivity : AppCompatActivity() {
     }
 
     fun setTimer(){
-        var mSecond = 5
+        var mSecond = 0
         val mTimer = Timer()
         val mTimerTask = object : TimerTask() {
             override fun run() {

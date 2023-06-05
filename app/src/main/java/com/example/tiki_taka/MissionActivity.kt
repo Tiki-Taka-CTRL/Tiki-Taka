@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
@@ -48,6 +49,7 @@ class MissionActivity : AppCompatActivity() {
     lateinit var question_title: TextView
     lateinit var switch_btn: SwitchCompat
     lateinit var title_lv1: TextView
+    lateinit var title: TextView
     lateinit var title_lv2: TextView
     var mission1_ans : Boolean = true
     var mission2_ans : Int = 0
@@ -58,8 +60,9 @@ class MissionActivity : AppCompatActivity() {
         chatRoom = intent.getSerializableExtra("chatRoom") as ChatRoom
         chatRoomkey = intent.getSerializableExtra("ChatRoomkey") as String
         opponentUser = intent.getSerializableExtra("opponent") as User
-        setupMission()
         initLayout()
+        setupMission()
+
         switchButton = findViewById(R.id.switch_button)
 
         submitbtn.setOnClickListener {
@@ -145,6 +148,7 @@ class MissionActivity : AppCompatActivity() {
         question_title = findViewById(R.id.match)!!
         title_lv1 = findViewById(R.id.mission_Q1)
         title_lv2 = findViewById(R.id.mission_Q2)
+        title = findViewById(R.id.match)
         switch_btn = findViewById(R.id.switch_button)
 
     }
@@ -221,10 +225,12 @@ class MissionActivity : AppCompatActivity() {
                     }
                 })
             } else {
+                title.text = "Check Your Friend Answer"
                 databaseChatRoom.child("chatRooms").child(chatRoomkey).child("missionlv1")
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             val items = snapshot.children
+
                             for (item in items) {
                                 title_lv1.setText(item.getValue<MissionLv1>()!!.title)
                                 missionLv1 = item.getValue<MissionLv1>()!!
