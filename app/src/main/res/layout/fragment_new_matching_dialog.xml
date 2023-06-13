@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view_newDialog"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:background="@drawable/rectangle_round_dialog_10dp"
+        android:backgroundTint="@color/gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_newDialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="We found your new friend !"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/img_newDialog"
+        app:layout_constraintEnd_toEndOf="@id/view_newDialog"
+        app:layout_constraintStart_toStartOf="@id/view_newDialog"
+        app:layout_constraintTop_toTopOf="@id/view_newDialog" />
+
+    <ImageView
+        android:id="@+id/img_newDialog"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/img_profile_leo"
+        app:layout_constraintBottom_toTopOf="@id/tv_newDialog_name"
+        app:layout_constraintEnd_toEndOf="@id/tv_newDialog_title"
+        app:layout_constraintStart_toStartOf="@id/tv_newDialog_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_newDialog_title" />
+
+    <TextView
+        android:id="@+id/tv_newDialog_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_friend_name"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/linear1_newDialog"
+        app:layout_constraintEnd_toEndOf="@id/img_newDialog"
+        app:layout_constraintStart_toStartOf="@id/img_newDialog"
+        app:layout_constraintTop_toBottomOf="@id/img_newDialog" />
+
+    <LinearLayout
+        android:id="@+id/linear1_newDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/linear2_newDialog"
+        app:layout_constraintEnd_toEndOf="@id/tv_newDialog_name"
+        app:layout_constraintStart_toStartOf="@id/tv_newDialog_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_newDialog_name">
+
+        <TextView
+            android:id="@+id/tv_newDialog_hobby1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/dialog_friend_hobby1"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_newDialog_hobby2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_friend_hobby2"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2_newDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/tv_newMatching_question"
+        app:layout_constraintEnd_toEndOf="@id/linear1_newDialog"
+        app:layout_constraintStart_toStartOf="@id/linear1_newDialog"
+        app:layout_constraintTop_toBottomOf="@id/linear1_newDialog">
+
+        <TextView
+            android:id="@+id/tv_newDialog_hobby3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/dialog_friend_hobby3"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_newDialog_hobby4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_friend_hobby4"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_newMatching_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Do you want to chat with this friend?"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/btn_newDialog_no"
+        app:layout_constraintEnd_toEndOf="@id/linear2_newDialog"
+        app:layout_constraintStart_toStartOf="@id/linear2_newDialog"
+        app:layout_constraintTop_toBottomOf="@id/linear2_newDialog" />
+
+    <Button
+        android:id="@+id/btn_newDialog_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rectangle_round_blackline_20dp"
+        android:text="NO"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/view_newDialog"
+        app:layout_constraintEnd_toStartOf="@id/btn_newDialog_yes"
+        app:layout_constraintStart_toStartOf="@id/tv_newMatching_question"
+        app:layout_constraintTop_toBottomOf="@id/tv_newMatching_question" />
+
+    <Button
+        android:id="@+id/btn_newDialog_yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_round_black_20dp"
+        android:text="YES"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/btn_newDialog_no"
+        app:layout_constraintEnd_toEndOf="@id/tv_newMatching_question"
+        app:layout_constraintStart_toEndOf="@id/btn_newDialog_no"
+        app:layout_constraintTop_toTopOf="@id/btn_newDialog_no" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

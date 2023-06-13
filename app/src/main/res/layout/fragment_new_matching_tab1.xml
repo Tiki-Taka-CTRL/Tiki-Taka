@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup_tab1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:singleLine="false">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip1_tab1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="basketball🏀" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip2_tab1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="coding💻" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip3_tab1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="violin🎻" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip4_tab1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="drawing🎨" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip5_tab1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="drum🥁" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip6_tab1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="shopping🛒" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip7_tab1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="writting📝" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip8_tab1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tennis🎾" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip9_tab1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="game🎮" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip10_tab1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="swim🏊" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+</LinearLayout>

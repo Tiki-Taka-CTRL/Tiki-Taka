@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "spinner_country">
+        <item>Republic of Korea</item>
+        <item>Netherlands</item>
+    </string-array>
+    <string-array name = "spinner_kor">
+        <item>Seoul</item>
+        <item>Incheon</item>
+        <item>Busan</item>
+        <item>Daegu</item>
+        <item>Daejeon</item>
+        <item>Gwangju</item>
+        <item>Suwon</item>
+        <item>Ulsan</item>
+        <item>Changwon</item>
+        <item>Seongnam</item>
+        <item>Goyang</item>
+        <item>Bucheon</item>
+        <item>Jeonju</item>
+        <item>Ansan</item>
+        <item>Cheongju</item>
+    </string-array>
+    <string-array name = "spinner_ntl">
+        <item>Amsterdam</item>
+        <item>Rotterdam</item>
+        <item>The Hague (Den Haag)</item>
+        <item>Utrecht</item>
+        <item>Eindhoven</item>
+        <item>Tilburg</item>
+        <item>Groningen</item>
+        <item>Almere</item>
+        <item>Breda</item>
+        <item>Nijmegen</item>
+    </string-array>
+</resources>

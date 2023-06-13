@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mission_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:text="Today's Mission"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textAlignment="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#CDCDCD"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="15dp"
+            android:text="Make your Own Question"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/edt_question1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#8E8E8E"
+            android:fontFamily="@font/notosans_medium"
+            android:paddingTop="5dp"
+            android:paddingLeft="17dp"
+            android:text="1. Type your Question"
+            android:textSize="17sp"
+            android:textColor="@color/black"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_button"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:checked="true"
+            android:gravity="center"
+            android:scrollbarSize="50dp"
+            android:background="@null"
+            android:paddingTop="10dp"
+            android:paddingLeft="150dp"
+            android:paddingRight="150dp" />
+
+        <EditText
+            android:id="@+id/edt_question2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="25dp"
+            android:paddingLeft="17dp"
+            android:textColorHint="#8E8E8E"
+            android:fontFamily="@font/notosans_medium"
+            android:text="2. Type your Question"
+            android:textSize="17sp"
+            android:textColor="@color/black"/>
+
+        <GridLayout
+            android:id="@+id/mission_num2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:columnCount="4">
+
+            <CheckBox
+                android:id="@+id/checkbox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
+                />
+
+            <EditText
+                android:id="@+id/edt_ans1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:fontFamily="@font/notosans_medium"
+                android:hint="Edit Answer1"
+                android:textColor="@color/black"
+                android:textColorHint="@color/dark_gray"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
+                 />
+            <EditText
+                android:id="@+id/edt_ans2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/dark_gray"
+                android:fontFamily="@font/notosans_medium"
+                android:hint="Edit Answer2"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                />
+
+            <CheckBox
+                android:id="@+id/checkbox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
+                 />
+            <EditText
+                android:id="@+id/edt_ans3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/dark_gray"
+                android:fontFamily="@font/notosans_medium"
+                android:hint="Edit Answer3"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                />
+
+            <CheckBox
+                android:id="@+id/checkbox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black" />
+            <EditText
+                android:id="@+id/edt_ans4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/dark_gray"
+                android:fontFamily="@font/notosans_medium"
+                android:hint="Edit Answer4"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                />
+
+        </GridLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_check"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/notosans_bold"/>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_chatting_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="Chat"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/search_chatting"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_chatting_newMatching"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/rectangle_round_black_30dp"
+        android:text="New Matching"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_chatting_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_chatting_title" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_chatting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/gray"
+        app:layout_constraintBottom_toTopOf="@id/recycler_chatting"
+        app:layout_constraintEnd_toEndOf="@+id/btn_chatting_newMatching"
+        app:layout_constraintStart_toStartOf="@id/tv_chatting_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_chatting_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_chatting"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/search_chatting"
+        app:layout_constraintStart_toStartOf="@id/search_chatting"
+        app:layout_constraintTop_toBottomOf="@id/search_chatting" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
